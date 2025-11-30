@@ -3,7 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Element | Computer Science Student</title>
+    <title>Element | Computer Science Student & Mobile App Developer</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Ahmad Firdaus (Element) - Computer Science student at UiTM specializing in mobile app development with React Native. Published apps on Google Play Store.">
+    <meta name="keywords" content="Ahmad Firdaus, Element, Mobile Developer, React Native, Computer Science, UiTM, Portfolio">
+    <meta name="author" content="Ahmad Firdaus">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://theelement45.github.io/">
+    <meta property="og:title" content="Element | Computer Science Student & Mobile App Developer">
+    <meta property="og:description" content="Computer Science student at UiTM specializing in mobile app development with React Native. Published apps on Google Play Store.">
+    <meta property="og:image" content="https://theelement45.github.io/asset/Picture.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://theelement45.github.io/">
+    <meta property="twitter:title" content="Element | Computer Science Student & Mobile App Developer">
+    <meta property="twitter:description" content="Computer Science student at UiTM specializing in mobile app development with React Native. Published apps on Google Play Store.">
+    <meta property="twitter:image" content="https://theelement45.github.io/asset/Picture.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
+    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
@@ -13,6 +36,7 @@
     
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
@@ -35,6 +59,11 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.3);
         }
         
+        .dark .glass-nav {
+            background: rgba(15, 23, 42, 0.85);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
         .blob {
             position: absolute;
             filter: blur(60px);
@@ -53,9 +82,153 @@
             width: 0%;
             transition: width 1.5s ease-out;
         }
+        
+        /* Page Loader */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        
+        .page-loader.loaded {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .loader-content {
+            text-align: center;
+        }
+        
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top-color: #3b82f6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .loader-text {
+            color: white;
+            margin-top: 1rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+        }
+        
+        /* Scroll to Top Button */
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.25rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+            z-index: 100;
+        }
+        
+        .scroll-top-btn.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .scroll-top-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+        }
+        
+        /* Section Reveal Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .reveal-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .reveal-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        /* Stagger children animations */
+        .stagger-children > * {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        
+        .stagger-children.active > *:nth-child(1) { transition-delay: 0.1s; }
+        .stagger-children.active > *:nth-child(2) { transition-delay: 0.2s; }
+        .stagger-children.active > *:nth-child(3) { transition-delay: 0.3s; }
+        .stagger-children.active > *:nth-child(4) { transition-delay: 0.4s; }
+        .stagger-children.active > *:nth-child(5) { transition-delay: 0.5s; }
+        
+        .stagger-children.active > * {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased selection:bg-blue-200 selection:text-blue-900">
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-blue-200 selection:text-blue-900 dark:bg-slate-900 dark:text-slate-200 transition-colors duration-300">
+
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-content">
+            <div class="loader-spinner mx-auto"></div>
+            <p class="loader-text">Element<span class="text-blue-500">.dev</span></p>
+        </div>
+    </div>
+    
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
@@ -63,23 +236,35 @@
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="#" class="text-2xl font-bold text-slate-800 tracking-tighter">
+                    <a href="#" class="text-2xl font-bold text-slate-800 dark:text-white tracking-tighter">
                         Element<span class="text-blue-600">.dev</span>
                     </a>
                 </div>
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#home" class="text-slate-600 hover:text-blue-600 font-medium transition-colors">Home</a>
-                    <a href="#about" class="text-slate-600 hover:text-blue-600 font-medium transition-colors">About</a>
-                    <a href="#skills" class="text-slate-600 hover:text-blue-600 font-medium transition-colors">Skills</a>
-                    <a href="#projects" class="text-slate-600 hover:text-blue-600 font-medium transition-colors">Projects</a>
+                    <a href="#home" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors">Home</a>
+                    <a href="#about" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors">About</a>
+                    <a href="#skills" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors">Skills</a>
+                    <a href="#projects" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors">Projects</a>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button id="darkModeToggle" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon text-slate-600 dark:hidden"></i>
+                        <i class="fas fa-sun text-yellow-400 hidden dark:block"></i>
+                    </button>
+                    
                     <a href="#contact" class="px-5 py-2.5 bg-blue-600 text-white font-medium rounded-full hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/30">Let's Talk</a>
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-blue-600 focus:outline-none p-2">
+                <div class="md:hidden flex items-center gap-2">
+                    <!-- Mobile Dark Mode Toggle -->
+                    <button id="darkModeToggleMobile" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon text-slate-600 dark:hidden"></i>
+                        <i class="fas fa-sun text-yellow-400 hidden dark:block"></i>
+                    </button>
+                    <button id="mobile-menu-btn" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 focus:outline-none p-2">
                         <i class="fas fa-bars text-2xl"></i>
                     </button>
                 </div>
@@ -87,13 +272,13 @@
         </div>
 
         <!-- Mobile Menu Panel -->
-        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-slate-100 absolute w-full shadow-xl">
+        <div id="mobile-menu" class="md:hidden hidden bg-white dark:bg-slate-800 border-t border-slate-100 dark:border-slate-700 absolute w-full shadow-xl">
             <div class="px-4 pt-2 pb-6 space-y-1">
-                <a href="#home" class="block px-3 py-3 rounded-md text-base font-medium text-slate-600 hover:text-blue-600 hover:bg-slate-50">Home</a>
-                <a href="#about" class="block px-3 py-3 rounded-md text-base font-medium text-slate-600 hover:text-blue-600 hover:bg-slate-50">About</a>
-                <a href="#skills" class="block px-3 py-3 rounded-md text-base font-medium text-slate-600 hover:text-blue-600 hover:bg-slate-50">Skills</a>
-                <a href="#projects" class="block px-3 py-3 rounded-md text-base font-medium text-slate-600 hover:text-blue-600 hover:bg-slate-50">Projects</a>
-                <a href="#contact" class="block px-3 py-3 mt-4 text-center rounded-md text-base font-bold bg-blue-50 text-blue-600">Contact Me</a>
+                <a href="#home" class="block px-3 py-3 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 hover:bg-slate-50 dark:hover:bg-slate-700">Home</a>
+                <a href="#about" class="block px-3 py-3 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 hover:bg-slate-50 dark:hover:bg-slate-700">About</a>
+                <a href="#skills" class="block px-3 py-3 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 hover:bg-slate-50 dark:hover:bg-slate-700">Skills</a>
+                <a href="#projects" class="block px-3 py-3 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 hover:bg-slate-50 dark:hover:bg-slate-700">Projects</a>
+                <a href="#contact" class="block px-3 py-3 mt-4 text-center rounded-md text-base font-bold bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400">Contact Me</a>
             </div>
         </div>
     </nav>
@@ -101,29 +286,29 @@
     <!-- Hero Section -->
     <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
         <!-- Background Blobs -->
-        <div class="blob bg-purple-300 w-96 h-96 rounded-full top-0 left-0 -translate-x-1/2 -translate-y-1/2"></div>
-        <div class="blob bg-blue-300 w-80 h-80 rounded-full bottom-0 right-0 translate-x-1/3 translate-y-1/3 animation-delay-2000"></div>
+        <div class="blob bg-purple-300 dark:bg-purple-600 w-96 h-96 rounded-full top-0 left-0 -translate-x-1/2 -translate-y-1/2"></div>
+        <div class="blob bg-blue-300 dark:bg-blue-600 w-80 h-80 rounded-full bottom-0 right-0 translate-x-1/3 translate-y-1/3 animation-delay-2000"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div class="text-center lg:text-left lg:grid lg:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6">
-                    <div class="inline-flex items-center px-3 py-1 rounded-full border border-blue-200 bg-blue-50 text-blue-600 text-sm font-medium mb-2">
-                        <span class="flex h-2 w-2 rounded-full bg-blue-600 mr-2"></span>
+                <div class="space-y-6 reveal">
+                    <div class="inline-flex items-center px-3 py-1 rounded-full border border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-sm font-medium mb-2">
+                        <span class="flex h-2 w-2 rounded-full bg-blue-600 dark:bg-blue-400 mr-2"></span>
                         Available for freelance work
                     </div>
-                    <h1 class="text-5xl lg:text-7xl font-bold text-slate-900 tracking-tight leading-tight">
+                    <h1 class="text-5xl lg:text-7xl font-bold text-slate-900 dark:text-white tracking-tight leading-tight">
                         Building mobile <br>
                         <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">apps</span> that matter.
                     </h1>
-                    <p class="text-xl text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                    <p class="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
                         I'm Ahmad Firdaus, a Computer Science student at UiTM with a 3.55 GPA. I specialize in mobile app development with React Native and have published apps on the Play Store.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
-                        <a href="#projects" class="px-8 py-4 bg-slate-900 text-white rounded-lg font-medium hover:bg-slate-800 transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
+                        <a href="#projects" class="px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg font-medium hover:bg-slate-800 dark:hover:bg-slate-100 transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
                             View Work <i class="fas fa-arrow-right text-sm"></i>
                         </a>
-                        <a href="#contact" class="px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-lg font-medium hover:bg-slate-50 transition-all flex items-center justify-center gap-2 hover:border-slate-300">
-                            Contact Me
+                        <a href="asset/Resume.pdf" download class="px-8 py-4 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 rounded-lg font-medium hover:bg-slate-50 dark:hover:bg-slate-700 transition-all flex items-center justify-center gap-2 hover:border-slate-300">
+                            <i class="fas fa-download"></i> Download CV
                         </a>
                     </div>
                     
@@ -134,9 +319,9 @@
                 </div>
                 
                 <!-- Hero Image / Illustration placeholder -->
-                <div class="hidden lg:block relative group">
+                <div class="hidden lg:block relative group reveal-right">
                     <div class="absolute inset-0 bg-gradient-to-tr from-blue-600 to-purple-600 rounded-2xl rotate-3 opacity-20 group-hover:rotate-6 transition-transform duration-500"></div>
-                    <div class="relative bg-white border border-slate-100 p-2 rounded-2xl shadow-2xl overflow-hidden">
+                    <div class="relative bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 p-2 rounded-2xl shadow-2xl overflow-hidden">
                         <!-- Abstract Code Representation -->
                          <div class="bg-slate-900 rounded-xl p-6 h-96 w-full flex flex-col font-mono text-sm overflow-hidden">
                             <div class="flex gap-2 mb-4">
@@ -168,48 +353,46 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
+    <section id="about" class="py-20 bg-white dark:bg-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="lg:grid lg:grid-cols-2 gap-16 items-center">
-                <div class="relative mb-12 lg:mb-0">
-                    <div class="aspect-square rounded-2xl overflow-hidden bg-slate-100 relative">
-                        <!-- Profile Placeholder -->
-                        <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-blue-100 to-purple-100 text-slate-400">
-                            <i class="fas fa-user text-8xl"></i>
-                        </div>
+                <div class="relative mb-12 lg:mb-0 reveal-left">
+                    <div class="aspect-square rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-700 relative">
+                        <!-- Real Profile Photo -->
+                        <img src="asset/Picture.jpg" alt="Ahmad Firdaus - Element" class="w-full h-full object-cover">
                     </div>
                     <!-- Experience Card Floating -->
-                    <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-xl border border-slate-50 max-w-xs">
+                    <div class="absolute -bottom-6 -right-6 bg-white dark:bg-slate-900 p-6 rounded-xl shadow-xl border border-slate-50 dark:border-slate-700 max-w-xs">
                         <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 text-xl font-bold">
+                            <div class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center text-blue-600 dark:text-blue-400 text-xl font-bold">
                                 3+
                             </div>
                             <div>
-                                <p class="text-sm text-slate-500 font-medium">Years of</p>
-                                <p class="text-lg font-bold text-slate-900">Experience</p>
+                                <p class="text-sm text-slate-500 dark:text-slate-400 font-medium">Years of</p>
+                                <p class="text-lg font-bold text-slate-900 dark:text-white">Experience</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="space-y-6">
-                    <h2 class="text-sm font-bold tracking-wide text-blue-600 uppercase">About Me</h2>
-                    <h3 class="text-3xl md:text-4xl font-bold text-slate-900">Building Apps, <br>One Line at a Time.</h3>
-                    <p class="text-slate-600 leading-relaxed">
+                <div class="space-y-6 reveal-right">
+                    <h2 class="text-sm font-bold tracking-wide text-blue-600 dark:text-blue-400 uppercase">About Me</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">Building Apps, <br>One Line at a Time.</h3>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
                         I'm a highly motivated Computer Science student at Universiti Teknologi MARA (UiTM) with a 3.55 GPA, currently on my internship semester. I'm proficient in C++, Java, PHP, and Python, with hands-on experience in mobile app development using React Native and Expo.
                     </p>
-                    <p class="text-slate-600 leading-relaxed">
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
                         I have published apps on the Google Play Store and enjoy building practical solutions. When I'm not coding, you can find me gaming or reading. I'm fluent in English and Malay, and I'm always eager to learn new technologies.
                     </p>
                     
                     <div class="grid grid-cols-2 gap-6 pt-4">
-                        <div class="border-l-4 border-blue-200 pl-4">
-                            <h4 class="font-bold text-slate-900">Published Developer</h4>
-                            <p class="text-sm text-slate-500 mt-1">Apps live on Google Play Store.</p>
+                        <div class="border-l-4 border-blue-200 dark:border-blue-800 pl-4">
+                            <h4 class="font-bold text-slate-900 dark:text-white">Published Developer</h4>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Apps live on Google Play Store.</p>
                         </div>
-                        <div class="border-l-4 border-purple-200 pl-4">
-                            <h4 class="font-bold text-slate-900">Currently Interning</h4>
-                            <p class="text-sm text-slate-500 mt-1">Gaining real-world experience.</p>
+                        <div class="border-l-4 border-purple-200 dark:border-purple-800 pl-4">
+                            <h4 class="font-bold text-slate-900 dark:text-white">Currently Interning</h4>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Gaining real-world experience.</p>
                         </div>
                     </div>
                 </div>
@@ -218,38 +401,38 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-slate-50">
+    <section id="skills" class="py-20 bg-slate-50 dark:bg-slate-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-sm font-bold tracking-wide text-blue-600 uppercase">My Toolkit</h2>
-                <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mt-2">Technical Proficiency</h3>
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-sm font-bold tracking-wide text-blue-600 dark:text-blue-400 uppercase">My Toolkit</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mt-2">Technical Proficiency</h3>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-children">
                 <!-- Skill Card 1 -->
-                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 text-2xl mb-6">
+                <div class="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-transparent dark:border-slate-700">
+                    <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/50 rounded-lg flex items-center justify-center text-blue-600 dark:text-blue-400 text-2xl mb-6">
                         <i class="fab fa-react"></i>
                     </div>
-                    <h4 class="text-xl font-bold text-slate-900 mb-2">Mobile Dev</h4>
-                    <p class="text-slate-500 mb-6 text-sm">Building cross-platform mobile applications.</p>
+                    <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Mobile Dev</h4>
+                    <p class="text-slate-500 dark:text-slate-400 mb-6 text-sm">Building cross-platform mobile applications.</p>
                     
                     <div class="space-y-4">
                         <div>
-                            <div class="flex justify-between text-sm font-medium mb-1">
+                            <div class="flex justify-between text-sm font-medium mb-1 text-slate-700 dark:text-slate-300">
                                 <span>React Native / Expo</span>
                                 <span>75%</span>
                             </div>
-                            <div class="w-full bg-slate-100 rounded-full h-2">
+                            <div class="w-full bg-slate-100 dark:bg-slate-700 rounded-full h-2">
                                 <div class="bg-blue-500 h-2 rounded-full skill-fill" data-width="75%"></div>
                             </div>
                         </div>
                         <div>
-                            <div class="flex justify-between text-sm font-medium mb-1">
+                            <div class="flex justify-between text-sm font-medium mb-1 text-slate-700 dark:text-slate-300">
                                 <span>Firebase</span>
                                 <span>70%</span>
                             </div>
-                            <div class="w-full bg-slate-100 rounded-full h-2">
+                            <div class="w-full bg-slate-100 dark:bg-slate-700 rounded-full h-2">
                                 <div class="bg-yellow-500 h-2 rounded-full skill-fill" data-width="70%"></div>
                             </div>
                         </div>
@@ -257,29 +440,29 @@
                 </div>
 
                 <!-- Skill Card 2 -->
-                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center text-green-600 text-2xl mb-6">
+                <div class="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-transparent dark:border-slate-700">
+                    <div class="w-12 h-12 bg-green-100 dark:bg-green-900/50 rounded-lg flex items-center justify-center text-green-600 dark:text-green-400 text-2xl mb-6">
                         <i class="fas fa-database"></i>
                     </div>
-                    <h4 class="text-xl font-bold text-slate-900 mb-2">Databases</h4>
-                    <p class="text-slate-500 mb-6 text-sm">Working with relational and NoSQL databases.</p>
+                    <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Databases</h4>
+                    <p class="text-slate-500 dark:text-slate-400 mb-6 text-sm">Working with relational and NoSQL databases.</p>
                     
                     <div class="space-y-4">
                         <div>
-                            <div class="flex justify-between text-sm font-medium mb-1">
+                            <div class="flex justify-between text-sm font-medium mb-1 text-slate-700 dark:text-slate-300">
                                 <span>MySQL</span>
                                 <span>70%</span>
                             </div>
-                            <div class="w-full bg-slate-100 rounded-full h-2">
+                            <div class="w-full bg-slate-100 dark:bg-slate-700 rounded-full h-2">
                                 <div class="bg-blue-500 h-2 rounded-full skill-fill" data-width="70%"></div>
                             </div>
                         </div>
                         <div>
-                            <div class="flex justify-between text-sm font-medium mb-1">
+                            <div class="flex justify-between text-sm font-medium mb-1 text-slate-700 dark:text-slate-300">
                                 <span>MongoDB</span>
                                 <span>60%</span>
                             </div>
-                            <div class="w-full bg-slate-100 rounded-full h-2">
+                            <div class="w-full bg-slate-100 dark:bg-slate-700 rounded-full h-2">
                                 <div class="bg-green-500 h-2 rounded-full skill-fill" data-width="60%"></div>
                             </div>
                         </div>
@@ -287,29 +470,29 @@
                 </div>
 
                 <!-- Skill Card 3 -->
-                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center text-purple-600 text-2xl mb-6">
+                <div class="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-transparent dark:border-slate-700">
+                    <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/50 rounded-lg flex items-center justify-center text-purple-600 dark:text-purple-400 text-2xl mb-6">
                         <i class="fas fa-code"></i>
                     </div>
-                    <h4 class="text-xl font-bold text-slate-900 mb-2">Languages</h4>
-                    <p class="text-slate-500 mb-6 text-sm">Programming languages I work with.</p>
+                    <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Languages</h4>
+                    <p class="text-slate-500 dark:text-slate-400 mb-6 text-sm">Programming languages I work with.</p>
                     
                     <div class="space-y-4">
                         <div>
-                            <div class="flex justify-between text-sm font-medium mb-1">
+                            <div class="flex justify-between text-sm font-medium mb-1 text-slate-700 dark:text-slate-300">
                                 <span>C++ / Java</span>
                                 <span>70%</span>
                             </div>
-                            <div class="w-full bg-slate-100 rounded-full h-2">
+                            <div class="w-full bg-slate-100 dark:bg-slate-700 rounded-full h-2">
                                 <div class="bg-orange-500 h-2 rounded-full skill-fill" data-width="70%"></div>
                             </div>
                         </div>
                         <div>
-                            <div class="flex justify-between text-sm font-medium mb-1">
+                            <div class="flex justify-between text-sm font-medium mb-1 text-slate-700 dark:text-slate-300">
                                 <span>PHP / Python</span>
                                 <span>65%</span>
                             </div>
-                            <div class="w-full bg-slate-100 rounded-full h-2">
+                            <div class="w-full bg-slate-100 dark:bg-slate-700 rounded-full h-2">
                                 <div class="bg-purple-500 h-2 rounded-full skill-fill" data-width="65%"></div>
                             </div>
                         </div>
@@ -320,27 +503,27 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-white">
+    <section id="projects" class="py-20 bg-white dark:bg-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 reveal">
                 <div>
-                    <h2 class="text-sm font-bold tracking-wide text-blue-600 uppercase">Portfolio</h2>
-                    <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mt-2">Featured Projects</h3>
+                    <h2 class="text-sm font-bold tracking-wide text-blue-600 dark:text-blue-400 uppercase">Portfolio</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mt-2">Featured Projects</h3>
                 </div>
-                <a href="https://github.com/TheElement45" target="_blank" class="hidden md:inline-flex items-center text-slate-600 font-medium hover:text-blue-600 transition-colors mt-4 md:mt-0">
+                <a href="https://github.com/TheElement45" target="_blank" class="hidden md:inline-flex items-center text-slate-600 dark:text-slate-400 font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors mt-4 md:mt-0">
                     View GitHub <i class="fab fa-github ml-2"></i>
                 </a>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-children">
                 <!-- Project 1 -->
-                <div class="group rounded-xl overflow-hidden bg-white border border-slate-100 shadow-lg hover:shadow-xl transition-all duration-300">
+                <div class="group rounded-xl overflow-hidden bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-700 shadow-lg hover:shadow-xl transition-all duration-300">
                     <div class="h-48 bg-gradient-to-br from-green-500 to-teal-600 relative overflow-hidden">
                         <!-- Mockup shape -->
-                        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-4/5 h-4/5 bg-white rounded-t-lg shadow-2xl opacity-90 group-hover:translate-y-2 transition-transform">
+                        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-4/5 h-4/5 bg-white dark:bg-slate-800 rounded-t-lg shadow-2xl opacity-90 group-hover:translate-y-2 transition-transform">
                              <div class="p-4 space-y-2">
-                                 <div class="w-1/3 h-2 bg-slate-200 rounded"></div>
-                                 <div class="w-full h-16 bg-slate-100 rounded flex items-center justify-center">
+                                 <div class="w-1/3 h-2 bg-slate-200 dark:bg-slate-600 rounded"></div>
+                                 <div class="w-full h-16 bg-slate-100 dark:bg-slate-700 rounded flex items-center justify-center">
                                      <i class="fas fa-check-circle text-green-500 text-2xl"></i>
                                  </div>
                              </div>
@@ -348,19 +531,19 @@
                     </div>
                     <div class="p-6">
                         <div class="flex gap-2 mb-3">
-                            <span class="px-2 py-1 bg-blue-50 text-blue-600 text-xs font-medium rounded">React Native</span>
-                            <span class="px-2 py-1 bg-yellow-50 text-yellow-600 text-xs font-medium rounded">Firebase</span>
+                            <span class="px-2 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-medium rounded">React Native</span>
+                            <span class="px-2 py-1 bg-yellow-50 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400 text-xs font-medium rounded">Firebase</span>
                         </div>
-                        <h4 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">Convergent</h4>
-                        <p class="text-slate-500 text-sm mb-4">A habit tracking mobile app to help users build and maintain positive daily habits with progress tracking.</p>
-                        <a href="https://github.com/TheElement45/Convergent" target="_blank" class="inline-flex items-center text-sm font-medium text-slate-900 hover:text-blue-600 transition-colors">
+                        <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Convergent</h4>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">A habit tracking mobile app to help users build and maintain positive daily habits with progress tracking.</p>
+                        <a href="https://github.com/TheElement45/Convergent" target="_blank" class="inline-flex items-center text-sm font-medium text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                             View Project <i class="fas fa-external-link-alt ml-2 text-xs"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Project 2 -->
-                <div class="group rounded-xl overflow-hidden bg-white border border-slate-100 shadow-lg hover:shadow-xl transition-all duration-300">
+                <div class="group rounded-xl overflow-hidden bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-700 shadow-lg hover:shadow-xl transition-all duration-300">
                     <div class="h-48 bg-gradient-to-br from-blue-500 to-indigo-600 relative overflow-hidden">
                          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
                             <i class="fas fa-clipboard-check text-white text-2xl"></i>
@@ -368,19 +551,19 @@
                     </div>
                     <div class="p-6">
                         <div class="flex gap-2 mb-3">
-                            <span class="px-2 py-1 bg-blue-50 text-blue-600 text-xs font-medium rounded">React Native</span>
-                            <span class="px-2 py-1 bg-green-50 text-green-600 text-xs font-medium rounded">Published</span>
+                            <span class="px-2 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-medium rounded">React Native</span>
+                            <span class="px-2 py-1 bg-green-50 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-xs font-medium rounded">Published</span>
                         </div>
-                        <h4 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">Attend-In</h4>
-                        <p class="text-slate-500 text-sm mb-4">A published attendance tracking mobile app on Google Play Store for efficient management of attendance records.</p>
-                        <a href="https://play.google.com/store/apps/details?id=com.element.attendin" target="_blank" class="inline-flex items-center text-sm font-medium text-slate-900 hover:text-blue-600 transition-colors">
+                        <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Attend-In</h4>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">A published attendance tracking mobile app on Google Play Store for efficient management of attendance records.</p>
+                        <a href="https://play.google.com/store/apps/details?id=com.element.attendin" target="_blank" class="inline-flex items-center text-sm font-medium text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                             View on Play Store <i class="fab fa-google-play ml-2 text-xs"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Project 3 -->
-                <div class="group rounded-xl overflow-hidden bg-white border border-slate-100 shadow-lg hover:shadow-xl transition-all duration-300">
+                <div class="group rounded-xl overflow-hidden bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-700 shadow-lg hover:shadow-xl transition-all duration-300">
                     <div class="h-48 bg-gradient-to-br from-indigo-500 to-purple-600 relative overflow-hidden">
                          <div class="absolute inset-0 flex items-center justify-center">
                              <div class="flex gap-4">
@@ -392,12 +575,12 @@
                     </div>
                     <div class="p-6">
                         <div class="flex gap-2 mb-3">
-                            <span class="px-2 py-1 bg-blue-50 text-blue-600 text-xs font-medium rounded">Python</span>
-                            <span class="px-2 py-1 bg-indigo-50 text-indigo-600 text-xs font-medium rounded">Discord.py</span>
+                            <span class="px-2 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-medium rounded">Python</span>
+                            <span class="px-2 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-xs font-medium rounded">Discord.py</span>
                         </div>
-                        <h4 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">Discord Music Bot</h4>
-                        <p class="text-slate-500 text-sm mb-4">A Python-based Discord bot to stream music from YouTube with interactive controls and playlist support.</p>
-                        <a href="https://github.com/TheElement45/music-bot" target="_blank" class="inline-flex items-center text-sm font-medium text-slate-900 hover:text-blue-600 transition-colors">
+                        <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Discord Music Bot</h4>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">A Python-based Discord bot to stream music from YouTube with interactive controls and playlist support.</p>
+                        <a href="https://github.com/TheElement45/music-bot" target="_blank" class="inline-flex items-center text-sm font-medium text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                             View Project <i class="fas fa-external-link-alt ml-2 text-xs"></i>
                         </a>
                     </div>
@@ -405,7 +588,7 @@
             </div>
             
              <div class="mt-8 text-center md:hidden">
-                <a href="https://github.com/TheElement45" target="_blank" class="inline-flex items-center text-slate-600 font-medium hover:text-blue-600 transition-colors">
+                <a href="https://github.com/TheElement45" target="_blank" class="inline-flex items-center text-slate-600 dark:text-slate-400 font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                     View GitHub <i class="fab fa-github ml-2"></i>
                 </a>
             </div>
@@ -420,7 +603,7 @@
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="lg:grid lg:grid-cols-2 gap-16">
-                <div class="mb-12 lg:mb-0">
+                <div class="mb-12 lg:mb-0 reveal-left">
                     <h2 class="text-sm font-bold tracking-wide text-blue-400 uppercase">Get in Touch</h2>
                     <h3 class="text-3xl md:text-4xl font-bold mt-2 mb-6">Let's work together</h3>
                     <p class="text-slate-300 leading-relaxed mb-8 max-w-lg">
@@ -429,10 +612,10 @@
                     
                     <div class="space-y-4">
                         <div class="flex items-center gap-4">
-                            <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-blue-400">
+                            <div class="w-10 h-10 rounded-full bg-slate-800 flex i  tems-center justify-center text-blue-400">
                                 <i class="fas fa-envelope"></i>
                             </div>
-                            <span class="text-slate-200">ahmad.firdaus.sarip@gmail.com</span>
+                            <span class="text-slate-200">foreelement45@gmail.com</span>
                         </div>
                         <div class="flex items-center gap-4">
                             <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-blue-400">
@@ -443,30 +626,41 @@
                     </div>
                 </div>
 
-                <div class="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10">
-                    <form onsubmit="event.preventDefault(); alert('Thanks for the message! This is a demo form.');" class="space-y-6">
+                <div class="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 reveal-right">
+                    <!-- Working Contact Form with Formspree -->
+                    <form action="https://formspree.io/f/xwpkpgrz" method="POST" class="space-y-6" id="contactForm">
                         <div class="grid grid-cols-2 gap-6">
                             <div>
                                 <label for="name" class="block text-sm font-medium text-slate-300 mb-2">Name</label>
-                                <input type="text" id="name" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="John Doe">
+                                <input type="text" id="name" name="name" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="John Doe">
                             </div>
                             <div>
                                 <label for="email" class="block text-sm font-medium text-slate-300 mb-2">Email</label>
-                                <input type="email" id="email" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="john@example.com">
+                                <input type="email" id="email" name="email" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="john@example.com">
                             </div>
                         </div>
                         <div>
                             <label for="subject" class="block text-sm font-medium text-slate-300 mb-2">Subject</label>
-                            <input type="text" id="subject" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Project Inquiry">
+                            <input type="text" id="subject" name="subject" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Project Inquiry">
                         </div>
                         <div>
                             <label for="message" class="block text-sm font-medium text-slate-300 mb-2">Message</label>
-                            <textarea id="message" rows="4" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Tell me about your project..."></textarea>
+                            <textarea id="message" name="message" rows="4" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Tell me about your project..."></textarea>
                         </div>
-                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-lg transition-colors shadow-lg shadow-blue-600/20">
-                            Send Message
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-lg transition-colors shadow-lg shadow-blue-600/20 flex items-center justify-center gap-2">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
                         </button>
                     </form>
+                    
+                    <!-- Success message (hidden by default) -->
+                    <div id="formSuccess" class="hidden text-center py-8">
+                        <div class="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-check text-green-400 text-2xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Message Sent!</h4>
+                        <p class="text-slate-400">Thank you for reaching out. I'll get back to you soon.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -479,14 +673,40 @@
                 &copy; 2025 Ahmad Firdaus. All rights reserved.
             </div>
             <div class="flex space-x-6">
-                <a href="https://github.com/TheElement45" target="_blank" class="hover:text-white transition-colors">GitHub</a>
-                <a href="https://www.linkedin.com/in/element45" target="_blank" class="hover:text-white transition-colors">LinkedIn</a>
+                <a href="https://github.com/TheElement45" target="_blank" class="hover:text-white transition-colors"><i class="fab fa-github mr-1"></i> GitHub</a>
+                <a href="https://www.linkedin.com/in/element45" target="_blank" class="hover:text-white transition-colors"><i class="fab fa-linkedin mr-1"></i> LinkedIn</a>
             </div>
         </div>
     </footer>
 
     <!-- Scripts -->
     <script>
+        // Page Loader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('pageLoader').classList.add('loaded');
+            }, 500);
+        });
+        
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const darkModeToggleMobile = document.getElementById('darkModeToggleMobile');
+        const html = document.documentElement;
+        
+        // Check for saved preference or system preference
+        if (localStorage.getItem('darkMode') === 'true' || 
+            (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        }
+        
+        function toggleDarkMode() {
+            html.classList.toggle('dark');
+            localStorage.setItem('darkMode', html.classList.contains('dark'));
+        }
+        
+        darkModeToggle.addEventListener('click', toggleDarkMode);
+        darkModeToggleMobile.addEventListener('click', toggleDarkMode);
+        
         // Mobile Menu Toggle
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
@@ -521,6 +741,40 @@
                 navbar.classList.remove('shadow-md');
             }
         });
+        
+        // Scroll to Top Button
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+        
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Section Reveal Animations on Scroll
+        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .stagger-children');
+        
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+        
+        revealElements.forEach(el => revealObserver.observe(el));
 
         // Animate Skill Bars on Scroll
         const observerOptions = {
@@ -541,11 +795,35 @@
 
         observer.observe(document.querySelector('#skills'));
 
-        // Copy Email to Clipboard
-        function copyEmail() {
-            navigator.clipboard.writeText('hello@alexdeveloper.com');
-            alert('Email copied to clipboard!');
-        }
+        // Contact Form Handler
+        const contactForm = document.getElementById('contactForm');
+        const formSuccess = document.getElementById('formSuccess');
+        
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(contactForm);
+            
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    contactForm.classList.add('hidden');
+                    formSuccess.classList.remove('hidden');
+                    contactForm.reset();
+                } else {
+                    alert('Oops! There was a problem submitting your form. Please try again.');
+                }
+            } catch (error) {
+                alert('Oops! There was a problem submitting your form. Please try again.');
+            }
+        });
     </script>
 </body>
 </html>
