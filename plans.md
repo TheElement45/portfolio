@@ -8,14 +8,14 @@
 📄 Content Additions
 ~~Add a Resume/CV Download Button - Let recruiters easily download your resume~~ ✅
 Add a Testimonials Section - Social proof from colleagues or clients
-Add an Education Timeline - Showcase your academic journey at UiTM
-Add Certifications/Achievements Section - Display any courses or awards
+~~Add an Education Timeline - Showcase your academic journey at UiTM~~ ✅
+~~Add Certifications/Achievements Section - Display any courses or awards~~ ✅
 Add a Blog Section - Share technical articles to demonstrate expertise
 
 🔧 Functionality Enhancements
 ~~Working Contact Form - Integrate with Formspree, EmailJS, or Netlify Forms~~ ✅
 Add More Social Links - Twitter/X, Medium, Dev.to if applicable
-Add Project Filtering - Filter by technology (React Native, Python, etc.)
+~~Add Project Filtering - Filter by technology (React Native, Python, etc.)~~ ✅
 Add Project Screenshots/Videos - Real visuals of your apps in action
 Add a "What I'm Learning" Section - Show growth mindset
 
