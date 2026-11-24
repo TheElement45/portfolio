@@ -1,880 +1,950 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Element | IT Student & Mobile & Application Developer</title>
-    
+    <meta name="color-scheme" content="light dark">
+    <script>
+        document.documentElement.classList.add('js');
+        try {
+            var legacy = localStorage.getItem('darkMode');
+            if (legacy !== null && localStorage.getItem('color-scheme') === null) {
+                localStorage.setItem('color-scheme', legacy === 'true' ? 'dark' : 'light');
+                localStorage.removeItem('darkMode');
+            }
+            var scheme = localStorage.getItem('color-scheme');
+            if (scheme === 'dark' || scheme === 'light') {
+                document.querySelector('meta[name="color-scheme"]').content = scheme;
+                document.documentElement.classList.add(scheme);
+            }
+        } catch (e) {}
+    </script>
+
+    <title>Element | Mobile &amp; Desktop App Developer</title>
+
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Ahmad Firdaus (Element) - Bachelor of Information Technology (Hons.) student at UiTM Arau (3.65 CGPA) with a Diploma in Computer Science (3.45 CGPA). Specializing in React Native, Expo, TypeScript, and Windows desktop applications (C#, .NET 10, WinUI 3), and maintainer of USM's live iSolat app on Google Play.">
-    <meta name="keywords" content="Ahmad Firdaus, Element, Mobile Developer, Application Developer, React Native, TypeScript, Expo, NativeWind, C#, .NET 10, WinUI 3, SQLite, Information Technology, UiTM, USM, iSolat, Portfolio">
-    <meta name="author" content="Ahmad Firdaus">
-    
+    <meta name="description" content="Ahmad Firdaus (Element) — Mobile &amp; Desktop App Developer and B.IT (Hons.) student at UiTM Arau. Building cross-platform React Native &amp; Expo apps, native C# / WinUI 3 Windows utilities, and maintaining USM's live iSolat app on Google Play.">
+    <meta name="keywords" content="Ahmad Firdaus, Element, Mobile Developer, Desktop Developer, React Native, TypeScript, Expo, NativeWind, C#, .NET 10, WinUI 3, SQLite, UiTM, USM, iSolat, Portfolio">
+    <meta name="author" content="Ahmad Firdaus Bin Ahmad Sarip">
+    <link rel="canonical" href="https://theelement45.github.io/portfolio/">
+    <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://theelement45.github.io/portfolio/">
-    <meta property="og:title" content="Element | IT Student & Mobile & Application Developer">
-    <meta property="og:description" content="Bachelor of Information Technology (Hons.) student at UiTM Arau (3.65 CGPA) with a Diploma in Computer Science (3.45 CGPA), specializing in React Native, Expo, TypeScript, and Windows desktop applications (C#, .NET 10, WinUI 3). Maintainer of USM's live iSolat app on Google Play.">
-    <meta property="og:image" content="https://theelement45.github.io/portfolio/asset/Picture.jpg">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://theelement45.github.io/portfolio/">
-    <meta property="twitter:title" content="Element | IT Student & Mobile & Application Developer">
-    <meta property="twitter:description" content="Bachelor of Information Technology (Hons.) student at UiTM Arau (3.65 CGPA) with a Diploma in Computer Science (3.45 CGPA), specializing in React Native, Expo, TypeScript, and Windows desktop applications (C#, .NET 10, WinUI 3). Maintainer of USM's live iSolat app on Google Play.">
-    <meta property="twitter:image" content="https://theelement45.github.io/portfolio/asset/Picture.jpg">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        primary: '#3b82f6',
-                        secondary: '#1e293b',
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        /* Custom Utilities */
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-        }
-        
-        .dark .glass-nav {
-            background: rgba(15, 23, 42, 0.85);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .blob {
-            position: absolute;
-            filter: blur(60px);
-            z-index: -1;
-            opacity: 0.6;
-            animation: float 10s infinite alternate;
-        }
+    <meta property="og:title" content="Element | Mobile &amp; Desktop App Developer">
+    <meta property="og:description" content="Building cross-platform React Native &amp; Expo mobile apps and native C# / WinUI 3 Windows utilities — including maintaining USM's live iSolat app on Google Play.">
+    <meta property="og:image" content="https://theelement45.github.io/portfolio/asset/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Ahmad Firdaus (Element) — Mobile &amp; Desktop App Developer">
 
-        @keyframes float {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            100% { transform: translate(20px, 40px) rotate(10deg); }
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://theelement45.github.io/portfolio/">
+    <meta name="twitter:title" content="Element | Mobile &amp; Desktop App Developer">
+    <meta name="twitter:description" content="Building cross-platform React Native &amp; Expo mobile apps and native C# / WinUI 3 Windows utilities — including maintaining USM's live iSolat app on Google Play.">
+    <meta name="twitter:image" content="https://theelement45.github.io/portfolio/asset/og-image.png">
+
+    <!-- Icons -->
+    <link rel="icon" type="image/svg+xml" href="asset/favicon.svg">
+    <link rel="apple-touch-icon" href="asset/apple-touch-icon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Compiled Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ahmad Firdaus Bin Ahmad Sarip",
+      "alternateName": "Element",
+      "jobTitle": "Mobile & Desktop App Developer",
+      "url": "https://theelement45.github.io/portfolio/",
+      "image": "https://theelement45.github.io/portfolio/asset/profile.jpg",
+      "email": "mailto:element45.official@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Arau",
+        "addressRegion": "Perlis",
+        "addressCountry": "MY"
+      },
+      "alumniOf": [
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Universiti Teknologi MARA (UiTM)"
         }
-        
-        /* Page Loader */
-        .page-loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-        }
-        
-        .page-loader.loaded {
-            opacity: 0;
-            visibility: hidden;
-        }
-        
-        .loader-content {
-            text-align: center;
-        }
-        
-        .loader-spinner {
-            width: 50px;
-            height: 50px;
-            border: 3px solid rgba(255, 255, 255, 0.1);
-            border-top-color: #3b82f6;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        
-        .loader-text {
-            color: white;
-            margin-top: 1rem;
-            font-size: 1.25rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-        }
-        
-        /* Scroll to Top Button */
-        .scroll-top-btn {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 1.25rem;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(20px);
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
-            z-index: 100;
-        }
-        
-        .scroll-top-btn.visible {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-        
-        .scroll-top-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
-        }
-        
-        /* Section Reveal Animations */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .reveal-left {
-            opacity: 0;
-            transform: translateX(-50px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        
-        .reveal-left.active {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        
-        .reveal-right {
-            opacity: 0;
-            transform: translateX(50px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        
-        .reveal-right.active {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        
-        /* Stagger children animations */
-        .stagger-children > * {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-        
-        .stagger-children.active > *:nth-child(1) { transition-delay: 0.1s; }
-        .stagger-children.active > *:nth-child(2) { transition-delay: 0.2s; }
-        .stagger-children.active > *:nth-child(3) { transition-delay: 0.3s; }
-        .stagger-children.active > *:nth-child(4) { transition-delay: 0.4s; }
-        .stagger-children.active > *:nth-child(5) { transition-delay: 0.5s; }
-        .stagger-children.active > *:nth-child(6) { transition-delay: 0.6s; }
-        
-        .stagger-children.active > * {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+      ],
+      "sameAs": [
+        "https://github.com/TheElement45",
+        "https://www.linkedin.com/in/element45"
+      ],
+      "knowsAbout": [
+        "React Native",
+        "Expo",
+        "TypeScript",
+        "NativeWind",
+        "C#",
+        ".NET 10",
+        "WinUI 3",
+        "SQLite",
+        "MMKV",
+        "Firebase"
+      ]
+    }
+    </script>
+
+    <script src="js/main.js" defer></script>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-blue-200 selection:text-blue-900 dark:bg-slate-900 dark:text-slate-200 transition-colors duration-300">
 
-    <!-- Page Loader -->
-    <div class="page-loader" id="pageLoader">
-        <div class="loader-content">
-            <div class="loader-spinner mx-auto"></div>
-            <p class="loader-text">Element<span class="text-blue-500">.dev</span></p>
-        </div>
-    </div>
-    
-    <!-- Scroll to Top Button -->
-    <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="#" class="text-2xl font-bold text-slate-800 dark:text-white tracking-tighter">
-                        Element<span class="text-blue-600">.dev</span>
-                    </a>
-                </div>
-
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex space-x-7 items-center">
-                    <a href="#home" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors">Home</a>
-                    <a href="#about" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors">About</a>
-                    <a href="#experience" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors">Experience</a>
-                    <a href="#skills" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors">Skills</a>
-                    <a href="#projects" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors">Projects</a>
-                    <a href="#education" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors">Education</a>
-                    
-                    <!-- Dark Mode Toggle -->
-                    <button id="darkModeToggle" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle dark mode">
-                        <i class="fas fa-moon text-slate-600 dark:hidden"></i>
-                        <i class="fas fa-sun text-yellow-400 hidden dark:block"></i>
-                    </button>
-                    
-                    <a href="#contact" class="px-5 py-2.5 bg-blue-600 text-white font-medium rounded-full hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/30">Let's Talk</a>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden flex items-center gap-2">
-                    <!-- Mobile Dark Mode Toggle -->
-                    <button id="darkModeToggleMobile" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle dark mode">
-                        <i class="fas fa-moon text-slate-600 dark:hidden"></i>
-                        <i class="fas fa-sun text-yellow-400 hidden dark:block"></i>
-                    </button>
-                    <button id="mobile-menu-btn" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 focus:outline-none p-2" aria-label="Toggle navigation menu" aria-expanded="false">
-                        <i class="fas fa-bars text-2xl"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Mobile Menu Panel -->
-        <div id="mobile-menu" class="md:hidden hidden bg-white dark:bg-slate-800 border-t border-slate-100 dark:border-slate-700 absolute w-full shadow-xl">
-            <div class="px-4 pt-2 pb-6 space-y-1">
-                <a href="#home" class="block px-3 py-3 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 hover:bg-slate-50 dark:hover:bg-slate-700">Home</a>
-                <a href="#about" class="block px-3 py-3 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 hover:bg-slate-50 dark:hover:bg-slate-700">About</a>
-                <a href="#experience" class="block px-3 py-3 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 hover:bg-slate-50 dark:hover:bg-slate-700">Experience</a>
-                <a href="#skills" class="block px-3 py-3 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 hover:bg-slate-50 dark:hover:bg-slate-700">Skills</a>
-                <a href="#projects" class="block px-3 py-3 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 hover:bg-slate-50 dark:hover:bg-slate-700">Projects</a>
-                <a href="#education" class="block px-3 py-3 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 hover:bg-slate-50 dark:hover:bg-slate-700">Education</a>
-                <a href="#contact" class="block px-3 py-3 mt-4 text-center rounded-md text-base font-bold bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400">Contact Me</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-        <!-- Background Blobs -->
-        <div class="blob bg-purple-300 dark:bg-purple-600 w-96 h-96 rounded-full top-0 left-0 -translate-x-1/2 -translate-y-1/2"></div>
-        <div class="blob bg-blue-300 dark:bg-blue-600 w-80 h-80 rounded-full bottom-0 right-0 translate-x-1/3 translate-y-1/3 animation-delay-2000"></div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <div class="text-center lg:text-left lg:grid lg:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6 reveal">
-                    <div class="inline-flex items-center px-3 py-1 rounded-full border border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-sm font-medium mb-2">
-                        <span class="flex h-2 w-2 rounded-full bg-blue-600 dark:bg-blue-400 mr-2"></span>
-                        Open to opportunities &amp; freelance
-                    </div>
-                    <h1 class="text-5xl lg:text-7xl font-bold text-slate-900 dark:text-white tracking-tight leading-tight">
-                        Building mobile &amp; <br>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">desktop apps</span> that matter.
-                    </h1>
-                    <p class="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                        I'm Ahmad Firdaus, a Semester 4 Bachelor of Information Technology (Hons.) student at UiTM Arau (3.65 CGPA) with a Diploma in Computer Science (3.45 CGPA). I build cross-platform mobile apps with React Native &amp; Expo alongside Windows desktop tools, and help maintain USM's live iSolat app on Google Play.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
-                        <a href="#projects" class="px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg font-medium hover:bg-slate-800 dark:hover:bg-slate-100 transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
-                            View Work <i class="fas fa-arrow-right text-sm"></i>
-                        </a>
-                        <a href="asset/Resume.pdf" download="Ahmad_Firdaus_Resume.pdf" class="px-8 py-4 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 rounded-lg font-medium hover:bg-slate-50 dark:hover:bg-slate-700 transition-all flex items-center justify-center gap-2 hover:border-slate-300">
-                            <i class="fas fa-download"></i> Download CV
+    <header>
+        <nav aria-label="Primary" class="fixed w-full z-50 glass-nav transition-shadow duration-300" id="navbar">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-20">
+                    <!-- Logo -->
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="#home" class="text-2xl font-bold text-slate-800 dark:text-white tracking-tighter">
+                            Element<span class="text-blue-600 dark:text-blue-400">.dev</span>
                         </a>
                     </div>
-                    
-                    <div class="pt-8 flex items-center justify-center lg:justify-start gap-6 text-slate-400">
-                        <a href="https://github.com/TheElement45" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" class="hover:text-blue-600 transition-colors text-2xl"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/element45" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" class="hover:text-blue-600 transition-colors text-2xl"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-                
-                <!-- Hero Code Card -->
-                <div class="hidden lg:block relative group reveal-right">
-                    <div class="absolute inset-0 bg-gradient-to-tr from-blue-600 to-purple-600 rounded-2xl rotate-3 opacity-20 group-hover:rotate-6 transition-transform duration-500"></div>
-                    <div class="relative bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 p-2 rounded-2xl shadow-2xl overflow-hidden">
-                        <!-- Abstract Code Representation -->
-                         <div class="bg-slate-900 rounded-xl p-6 h-96 w-full flex flex-col font-mono text-sm overflow-hidden">
-                            <div class="flex gap-2 mb-4">
-                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                            </div>
-                            <div class="space-y-2 text-slate-300">
-                                <p><span class="text-purple-400">class</span> <span class="text-yellow-300">Developer</span> {</p>
-                                <p class="pl-4"><span class="text-purple-400">constructor</span>() {</p>
-                                <p class="pl-8"><span class="text-blue-400">this</span>.name = <span class="text-green-300">'Ahmad Firdaus'</span>;</p>
-                                <p class="pl-8"><span class="text-blue-400">this</span>.role = <span class="text-green-300">'IT Student &amp; App Dev'</span>;</p>
-                                <p class="pl-8"><span class="text-blue-400">this</span>.stack = [<span class="text-green-300">'TypeScript'</span>, <span class="text-green-300">'React Native'</span>, <span class="text-green-300">'C#'</span>];</p>
-                                <p class="pl-4">}</p>
-                                <p class="pl-4"><br></p>
-                                <p class="pl-4"><span class="text-purple-400">async</span> <span class="text-blue-300">build</span>() {</p>
-                                <p class="pl-8"><span class="text-purple-400">while</span> (<span class="text-blue-400">this</span>.shipping) {</p>
-                                <p class="pl-12"><span class="text-purple-400">await</span> <span class="text-blue-300">code</span>();</p>
-                                <p class="pl-12"><span class="text-purple-400">await</span> <span class="text-blue-300">deploy</span>();</p>
-                                <p class="pl-8">}</p>
-                                <p class="pl-4">}</p>
-                                <p>}</p>
-                            </div>
-                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-white dark:bg-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="lg:grid lg:grid-cols-2 gap-16 items-center">
-                <div class="relative mb-12 lg:mb-0 reveal-left">
-                    <div class="aspect-square rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-700 relative">
-                        <!-- Real Profile Photo -->
-                        <img src="asset/Picture.jpg" alt="Ahmad Firdaus - Element" class="w-full h-full object-cover">
-                    </div>
-                    <!-- Floating CGPA Card -->
-                    <div class="absolute -bottom-6 -right-6 bg-white dark:bg-slate-900 p-6 rounded-xl shadow-xl border border-slate-50 dark:border-slate-700 max-w-xs">
-                        <div class="flex items-center gap-4">
-                            <div class="w-14 h-12 rounded-full bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center text-blue-600 dark:text-blue-400 text-lg font-bold">
-                                3.65
-                            </div>
-                            <div>
-                                <p class="text-sm text-slate-500 dark:text-slate-400 font-medium">Current CGPA</p>
-                                <p class="text-lg font-bold text-slate-900 dark:text-white">B.IT (Hons.), UiTM Arau</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    <!-- Desktop Menu -->
+                    <div class="hidden md:flex space-x-7 items-center">
+                        <a href="#home" data-nav-link class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors">Home</a>
+                        <a href="#about" data-nav-link class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors">About</a>
+                        <a href="#experience" data-nav-link class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors">Experience</a>
+                        <a href="#skills" data-nav-link class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors">Skills</a>
+                        <a href="#projects" data-nav-link class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors">Projects</a>
+                        <a href="#education" data-nav-link class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors">Education</a>
 
-                <div class="space-y-6 reveal-right">
-                    <h2 class="text-sm font-bold tracking-wide text-blue-600 dark:text-blue-400 uppercase">About Me</h2>
-                    <h3 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">Building Practical Apps, <br>Across Mobile &amp; Desktop.</h3>
-                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
-                        I'm a Semester 4 Bachelor of Information Technology (Hons.) student at Universiti Teknologi MARA (UiTM) Arau (3.65 CGPA), holding a Diploma in Computer Science from UiTM Tapah (3.45 Final CGPA).
-                    </p>
-                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
-                        I have hands-on experience building, testing, and deploying cross-platform mobile apps with React Native, Expo, TypeScript, and NativeWind, alongside personal Windows desktop projects using C#, .NET 10, WinUI 3, and Rainmeter. I helped modernize and continue to maintain Universiti Sains Malaysia's (USM) live iSolat app on Google Play.
-                    </p>
-                    
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
-                        <div class="border-l-4 border-blue-200 dark:border-blue-800 pl-4">
-                            <h4 class="font-bold text-slate-900 dark:text-white">Published &amp; Maintained</h4>
-                            <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">USM's iSolat &amp; Attend-In live on Google Play Store.</p>
-                        </div>
-                        <div class="border-l-4 border-purple-200 dark:border-purple-800 pl-4">
-                            <h4 class="font-bold text-slate-900 dark:text-white">Mobile &amp; Windows Dev</h4>
-                            <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">React Native / Expo apps &amp; C# / WinUI 3 desktop tools.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="py-20 bg-slate-50 dark:bg-slate-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 reveal">
-                <h2 class="text-sm font-bold tracking-wide text-blue-600 dark:text-blue-400 uppercase">Career</h2>
-                <h3 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mt-2">Work Experience</h3>
-            </div>
-
-            <div class="max-w-4xl mx-auto reveal">
-                <div class="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow border border-slate-100 dark:border-slate-700">
-                    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center text-blue-600 dark:text-blue-400 text-xl flex-shrink-0">
-                                <i class="fas fa-mobile-alt"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-xl font-bold text-slate-900 dark:text-white">Mobile Application Developer Intern &amp; Maintainer</h4>
-                                <p class="text-blue-600 dark:text-blue-400 font-medium mt-1">Universiti Sains Malaysia (USM)</p>
-                            </div>
-                        </div>
-                        <span class="inline-flex items-center self-start px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-800 whitespace-nowrap">
-                            Sep 2025 – Feb 2026 (Ongoing Maintenance)
-                        </span>
-                    </div>
-
-                    <ul class="space-y-3 text-slate-600 dark:text-slate-300 text-sm md:text-base mb-6">
-                        <li class="flex items-start gap-3">
-                            <i class="fas fa-check-circle text-blue-500 mt-1 flex-shrink-0"></i>
-                            <span>Contributed to modernizing USM's legacy iSolat prayer times app into a cross-platform React Native, Expo, and TypeScript application.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fas fa-check-circle text-blue-500 mt-1 flex-shrink-0"></i>
-                            <span>Built and styled responsive screens using NativeWind (Tailwind CSS) and integrated offline prayer data storage with SQLite and MMKV.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fas fa-check-circle text-blue-500 mt-1 flex-shrink-0"></i>
-                            <span>Supported feature integration including home screen widgets, prayer notifications, and automated testing workflows.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fas fa-check-circle text-blue-500 mt-1 flex-shrink-0"></i>
-                            <span>Managed app builds and Google Play Store deployment, and continue providing on-call maintenance and bug fixes for USM.</span>
-                        </li>
-                    </ul>
-
-                    <div class="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-slate-100 dark:border-slate-700">
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-2.5 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-medium rounded-md">React Native</span>
-                            <span class="px-2.5 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-medium rounded-md">Expo</span>
-                            <span class="px-2.5 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-medium rounded-md">TypeScript</span>
-                            <span class="px-2.5 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-medium rounded-md">NativeWind</span>
-                            <span class="px-2.5 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-medium rounded-md">SQLite</span>
-                            <span class="px-2.5 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-medium rounded-md">MMKV</span>
-                        </div>
-                        <a href="https://play.google.com/store/apps/details?id=com.kamal.isolat.v2&hl=en" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors">
-                            View iSolat on Google Play <i class="fab fa-google-play ml-2 text-xs"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-white dark:bg-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 reveal">
-                <h2 class="text-sm font-bold tracking-wide text-blue-600 dark:text-blue-400 uppercase">My Toolkit</h2>
-                <h3 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mt-2">Technical Proficiency</h3>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-children">
-                <!-- Skill Card 1: Programming Languages -->
-                <div class="bg-slate-50 dark:bg-slate-900 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-slate-100 dark:border-slate-700">
-                    <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/50 rounded-lg flex items-center justify-center text-purple-600 dark:text-purple-400 text-2xl mb-6">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Programming Languages</h4>
-                    <p class="text-slate-500 dark:text-slate-400 mb-6 text-sm">Core languages across mobile, desktop, web, and scripting.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-lg">TypeScript</span>
-                        <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-lg">Python</span>
-                        <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-lg">Java</span>
-                        <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-lg">C++</span>
-                        <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-lg">PHP</span>
-                        <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-lg">C#</span>
-                        <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-lg">Lua</span>
-                        <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-lg">PowerShell</span>
-                    </div>
-                </div>
-
-                <!-- Skill Card 2: Frameworks & Tools -->
-                <div class="bg-slate-50 dark:bg-slate-900 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-slate-100 dark:border-slate-700">
-                    <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/50 rounded-lg flex items-center justify-center text-blue-600 dark:text-blue-400 text-2xl mb-6">
-                        <i class="fab fa-react"></i>
-                    </div>
-                    <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Frameworks &amp; Tools</h4>
-                    <p class="text-slate-500 dark:text-slate-400 mb-6 text-sm">Mobile, Windows desktop, styling, and CI/CD tooling.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-lg">React Native</span>
-                        <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-lg">Expo</span>
-                        <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-lg">NativeWind</span>
-                        <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-lg">Node.js</span>
-                        <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-lg">.NET 10 / WinUI 3</span>
-                        <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-lg">Rainmeter</span>
-                        <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-lg">Git</span>
-                        <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-lg">GitHub</span>
-                        <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-lg">GitHub Actions</span>
-                    </div>
-                </div>
-
-                <!-- Skill Card 3: Databases & Storage -->
-                <div class="bg-slate-50 dark:bg-slate-900 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-slate-100 dark:border-slate-700">
-                    <div class="w-12 h-12 bg-green-100 dark:bg-green-900/50 rounded-lg flex items-center justify-center text-green-600 dark:text-green-400 text-2xl mb-6">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Databases &amp; Storage</h4>
-                    <p class="text-slate-500 dark:text-slate-400 mb-6 text-sm">Relational databases, cloud backends, and offline mobile storage.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-lg">MySQL</span>
-                        <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-lg">SQLite</span>
-                        <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-lg">Firebase</span>
-                        <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-lg">MMKV</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-slate-50 dark:bg-slate-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 reveal gap-4">
-                <div>
-                    <h2 class="text-sm font-bold tracking-wide text-blue-600 dark:text-blue-400 uppercase">Portfolio</h2>
-                    <h3 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mt-2">Featured Projects</h3>
-                </div>
-                <a href="https://github.com/TheElement45" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center text-slate-600 dark:text-slate-400 font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                    View GitHub <i class="fab fa-github ml-2"></i>
-                </a>
-            </div>
-
-            <!-- Category Filters -->
-            <div class="flex flex-wrap gap-2 mb-10 reveal" role="group" aria-label="Filter projects by category">
-                <button type="button" data-filter="all" aria-pressed="true" class="project-filter-btn px-4 py-2 rounded-full text-sm font-medium transition-colors bg-blue-600 text-white shadow-sm">
-                    All
-                </button>
-                <button type="button" data-filter="mobile" aria-pressed="false" class="project-filter-btn px-4 py-2 rounded-full text-sm font-medium transition-colors bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700">
-                    Mobile
-                </button>
-                <button type="button" data-filter="desktop" aria-pressed="false" class="project-filter-btn px-4 py-2 rounded-full text-sm font-medium transition-colors bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700">
-                    Desktop
-                </button>
-                <button type="button" data-filter="other" aria-pressed="false" class="project-filter-btn px-4 py-2 rounded-full text-sm font-medium transition-colors bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700">
-                    Other
-                </button>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-children" id="projectsGrid">
-                <!-- Project 1: iSolat (USM) -->
-                <div data-category="mobile" class="project-card group rounded-xl overflow-hidden bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col">
-                    <div class="h-48 bg-gradient-to-br from-emerald-500 to-teal-700 relative overflow-hidden">
-                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
-                            <i class="fas fa-mosque text-white text-2xl"></i>
-                        </div>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col">
-                        <div class="flex flex-wrap gap-2 mb-3">
-                            <span class="px-2 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-medium rounded">React Native</span>
-                            <span class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-medium rounded">Expo</span>
-                            <span class="px-2 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-xs font-medium rounded">TypeScript</span>
-                            <span class="px-2 py-1 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 text-xs font-medium rounded">SQLite</span>
-                        </div>
-                        <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">iSolat (USM)</h4>
-                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4 flex-1">Modernized USM's prayer times app with NativeWind UI, offline SQLite &amp; MMKV storage, home screen widgets, and prayer notifications.</p>
-                        <a href="https://play.google.com/store/apps/details?id=com.kamal.isolat.v2&hl=en" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-medium text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                            View on Play Store <i class="fab fa-google-play ml-2 text-xs"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 2: CrystalCable -->
-                <div data-category="desktop" class="project-card group rounded-xl overflow-hidden bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col">
-                    <div class="h-48 bg-gradient-to-br from-sky-500 to-cyan-700 relative overflow-hidden">
-                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
-                            <i class="fas fa-network-wired text-white text-2xl"></i>
-                        </div>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col">
-                        <div class="flex flex-wrap gap-2 mb-3">
-                            <span class="px-2 py-1 bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs font-medium rounded">C#</span>
-                            <span class="px-2 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-medium rounded">.NET 10</span>
-                            <span class="px-2 py-1 bg-cyan-50 dark:bg-cyan-900/30 text-cyan-600 dark:text-cyan-400 text-xs font-medium rounded">WinUI 3</span>
-                        </div>
-                        <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">CrystalCable</h4>
-                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4 flex-1">GlassWire-inspired Windows network monitoring app visualizing real-time traffic and per-app bandwidth usage, with live connection tracking, LAN device listing, firewall rule toggles, and traffic history logging.</p>
-                        <a href="https://github.com/TheElement45" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-medium text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                            View on GitHub <i class="fab fa-github ml-2 text-xs"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 3: SlateHUD -->
-                <div data-category="desktop" class="project-card group rounded-xl overflow-hidden bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col">
-                    <div class="h-48 bg-gradient-to-br from-slate-700 to-slate-900 relative overflow-hidden">
-                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white/15 backdrop-blur-sm rounded-full flex items-center justify-center">
-                            <i class="fas fa-desktop text-white text-2xl"></i>
-                        </div>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col">
-                        <div class="flex flex-wrap gap-2 mb-3">
-                            <span class="px-2 py-1 bg-sky-50 dark:bg-sky-900/30 text-sky-600 dark:text-sky-400 text-xs font-medium rounded">Rainmeter</span>
-                            <span class="px-2 py-1 bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs font-medium rounded">C#</span>
-                            <span class="px-2 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-xs font-medium rounded">Lua</span>
-                            <span class="px-2 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-medium rounded">PowerShell</span>
-                            <span class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-medium rounded">GitHub Actions</span>
-                        </div>
-                        <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">SlateHUD</h4>
-                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4 flex-1">Customizable multi-theme Windows desktop HUD suite displaying system stats, network activity, media controls, quick notes, and an app/game launcher, with automated regression testing and GitHub Actions release packaging.</p>
-                        <a href="https://github.com/TheElement45" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-medium text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                            View on GitHub <i class="fab fa-github ml-2 text-xs"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 4: Attend-In -->
-                <div data-category="mobile" class="project-card group rounded-xl overflow-hidden bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col">
-                    <div class="h-48 bg-gradient-to-br from-blue-500 to-indigo-600 relative overflow-hidden">
-                         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
-                            <i class="fas fa-clipboard-check text-white text-2xl"></i>
-                         </div>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col">
-                        <div class="flex flex-wrap gap-2 mb-3">
-                            <span class="px-2 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-medium rounded">React Native</span>
-                            <span class="px-2 py-1 bg-green-50 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-xs font-medium rounded">Published</span>
-                        </div>
-                        <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Attend-In</h4>
-                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4 flex-1">A published attendance tracking mobile app on Google Play Store for efficient management of attendance records.</p>
-                        <a href="https://play.google.com/store/apps/details?id=com.element.attendin" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-medium text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                            View on Play Store <i class="fab fa-google-play ml-2 text-xs"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 5: Convergent -->
-                <div data-category="mobile" class="project-card group rounded-xl overflow-hidden bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col">
-                    <div class="h-48 bg-gradient-to-br from-green-500 to-teal-600 relative overflow-hidden">
-                        <!-- Mockup shape -->
-                        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-4/5 h-4/5 bg-white dark:bg-slate-900 rounded-t-lg shadow-2xl opacity-90 group-hover:translate-y-2 transition-transform">
-                             <div class="p-4 space-y-2">
-                                 <div class="w-1/3 h-2 bg-slate-200 dark:bg-slate-600 rounded"></div>
-                                 <div class="w-full h-16 bg-slate-100 dark:bg-slate-700 rounded flex items-center justify-center">
-                                     <i class="fas fa-check-circle text-green-500 text-2xl"></i>
-                                 </div>
-                             </div>
-                        </div>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col">
-                        <div class="flex flex-wrap gap-2 mb-3">
-                            <span class="px-2 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-medium rounded">React Native</span>
-                            <span class="px-2 py-1 bg-yellow-50 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400 text-xs font-medium rounded">Firebase</span>
-                        </div>
-                        <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Convergent</h4>
-                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4 flex-1">A habit tracking mobile app to help users build and maintain positive daily habits with progress tracking.</p>
-                        <a href="https://github.com/TheElement45/Convergent" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-medium text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                            View Project <i class="fas fa-external-link-alt ml-2 text-xs"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 6: Discord Music Bot -->
-                <div data-category="other" class="project-card group rounded-xl overflow-hidden bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col">
-                    <div class="h-48 bg-gradient-to-br from-indigo-500 to-purple-600 relative overflow-hidden">
-                         <div class="absolute inset-0 flex items-center justify-center">
-                             <div class="flex gap-4">
-                                 <div class="w-8 h-16 bg-white/30 rounded-full"></div>
-                                 <div class="w-8 h-16 bg-white/50 rounded-full -mt-4"></div>
-                                 <div class="w-8 h-16 bg-white/30 rounded-full"></div>
-                             </div>
-                         </div>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col">
-                        <div class="flex flex-wrap gap-2 mb-3">
-                            <span class="px-2 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-medium rounded">Python</span>
-                            <span class="px-2 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-xs font-medium rounded">Discord.py</span>
-                        </div>
-                        <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Discord Music Bot</h4>
-                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4 flex-1">A Python-based Discord bot to stream music from YouTube with interactive controls and playlist support.</p>
-                        <a href="https://github.com/TheElement45/music-bot" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-medium text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                            View Project <i class="fas fa-external-link-alt ml-2 text-xs"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="mt-8 text-center md:hidden">
-                <a href="https://github.com/TheElement45" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-slate-600 dark:text-slate-400 font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                    View GitHub <i class="fab fa-github ml-2"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education, Certifications & Languages Section -->
-    <section id="education" class="py-20 bg-white dark:bg-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 reveal">
-                <h2 class="text-sm font-bold tracking-wide text-blue-600 dark:text-blue-400 uppercase">Background</h2>
-                <h3 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mt-2">Education &amp; Credentials</h3>
-            </div>
-
-            <div class="grid lg:grid-cols-2 gap-12">
-                <!-- Left Column: Education Timeline -->
-                <div class="reveal-left">
-                    <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-3">
-                        <span class="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 flex items-center justify-center">
-                            <i class="fas fa-graduation-cap"></i>
-                        </span>
-                        Education Timeline
-                    </h4>
-
-                    <div class="relative border-l-2 border-blue-200 dark:border-blue-800 pl-8 space-y-8 ml-4">
-                        <!-- Degree -->
-                        <div class="relative">
-                            <span class="absolute -left-[41px] top-1.5 w-4 h-4 rounded-full bg-blue-600 border-4 border-white dark:border-slate-800"></span>
-                            <div class="bg-slate-50 dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm">
-                                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-                                    <span class="text-xs font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wide">Mar 2026 – Present (Expected 2028)</span>
-                                    <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-800">
-                                        CGPA: 3.65 (Semester 4)
-                                    </span>
-                                </div>
-                                <h5 class="text-lg font-bold text-slate-900 dark:text-white">Bachelor of Information Technology (Hons.)</h5>
-                                <p class="text-slate-600 dark:text-slate-400 text-sm mt-1">Universiti Teknologi MARA (UiTM), Arau Campus</p>
-                            </div>
-                        </div>
-
-                        <!-- Diploma -->
-                        <div class="relative">
-                            <span class="absolute -left-[41px] top-1.5 w-4 h-4 rounded-full bg-purple-600 border-4 border-white dark:border-slate-800"></span>
-                            <div class="bg-slate-50 dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm">
-                                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-                                    <span class="text-xs font-semibold text-purple-600 dark:text-purple-400 uppercase tracking-wide">September 2023 – February 2026</span>
-                                    <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 border border-purple-200 dark:border-purple-800">
-                                        Final CGPA: 3.45
-                                    </span>
-                                </div>
-                                <h5 class="text-lg font-bold text-slate-900 dark:text-white">Diploma in Computer Science</h5>
-                                <p class="text-slate-600 dark:text-slate-400 text-sm mt-1">Universiti Teknologi MARA (UiTM), Tapah Campus</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Column: Certifications & Languages -->
-                <div class="space-y-10 reveal-right">
-                    <!-- Certifications -->
-                    <div>
-                        <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-3">
-                            <span class="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
-                                <i class="fas fa-certificate"></i>
+                        <!-- Dark Mode Toggle -->
+                        <button type="button" id="darkModeToggle" class="w-10 h-10 inline-flex items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer">
+                            <span class="dark:hidden inline-flex items-center justify-center">
+                                <svg aria-hidden="true" class="w-5 h-5 text-slate-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                                </svg>
+                                <span class="sr-only">Switch to dark theme</span>
                             </span>
-                            Certifications
-                        </h4>
+                            <span class="hidden dark:inline-flex items-center justify-center">
+                                <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="4"/>
+                                    <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+                                </svg>
+                                <span class="sr-only">Switch to light theme</span>
+                            </span>
+                        </button>
 
-                        <div class="bg-slate-50 dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm">
-                            <div class="flex flex-wrap items-start justify-between gap-2 mb-2">
-                                <div>
-                                    <h5 class="text-lg font-bold text-slate-900 dark:text-white">Introduction to IoT</h5>
-                                    <p class="text-slate-600 dark:text-slate-400 text-sm mt-1">Cisco Networking Academy</p>
-                                </div>
-                                <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
-                                    March 2025
-                                </span>
-                            </div>
-                            <a href="https://www.credly.com/badges/c7447cc2-9eb0-4f50-92d8-a3cd6c4dbb19/public_url" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors mt-3">
-                                Verify Certificate <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                        <a href="#contact" class="px-5 py-2.5 bg-blue-600 text-white font-medium rounded-full hover:bg-blue-700 transition-colors shadow-lg shadow-blue-500/30">Let's Talk</a>
+                    </div>
+
+                    <!-- Mobile Menu Controls -->
+                    <div class="md:hidden flex items-center gap-2">
+                        <button type="button" id="darkModeToggleMobile" class="w-10 h-10 inline-flex items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer">
+                            <span class="dark:hidden inline-flex items-center justify-center">
+                                <svg aria-hidden="true" class="w-5 h-5 text-slate-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                                </svg>
+                                <span class="sr-only">Switch to dark theme</span>
+                            </span>
+                            <span class="hidden dark:inline-flex items-center justify-center">
+                                <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="4"/>
+                                    <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+                                </svg>
+                                <span class="sr-only">Switch to light theme</span>
+                            </span>
+                        </button>
+                        <button type="button" id="mobile-menu-btn" class="w-10 h-10 inline-flex items-center justify-center rounded-lg text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 p-2 cursor-pointer" aria-label="Toggle navigation menu" aria-controls="mobile-menu" aria-expanded="false">
+                            <svg id="menuOpenIcon" aria-hidden="true" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M4 6h16M4 12h16M4 18h16"/>
+                            </svg>
+                            <svg id="menuCloseIcon" aria-hidden="true" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Panel -->
+            <div id="mobile-menu" class="md:hidden hidden bg-white dark:bg-slate-800 border-t border-slate-100 dark:border-slate-700 absolute w-full shadow-xl">
+                <div class="px-4 pt-2 pb-6 space-y-1">
+                    <a href="#home" data-nav-link class="block px-3 py-3 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 hover:bg-slate-50 dark:hover:bg-slate-700">Home</a>
+                    <a href="#about" data-nav-link class="block px-3 py-3 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 hover:bg-slate-50 dark:hover:bg-slate-700">About</a>
+                    <a href="#experience" data-nav-link class="block px-3 py-3 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 hover:bg-slate-50 dark:hover:bg-slate-700">Experience</a>
+                    <a href="#skills" data-nav-link class="block px-3 py-3 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 hover:bg-slate-50 dark:hover:bg-slate-700">Skills</a>
+                    <a href="#projects" data-nav-link class="block px-3 py-3 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 hover:bg-slate-50 dark:hover:bg-slate-700">Projects</a>
+                    <a href="#education" data-nav-link class="block px-3 py-3 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 hover:bg-slate-50 dark:hover:bg-slate-700">Education</a>
+                    <a href="#contact" class="block px-3 py-3 mt-4 text-center rounded-md text-base font-bold bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400">Contact Me</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+        <!-- Hero Section -->
+        <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+            <!-- Background Blobs -->
+            <div aria-hidden="true" class="blob bg-purple-300 dark:bg-purple-600 w-96 h-96 rounded-full top-0 left-0 -translate-x-1/2 -translate-y-1/2"></div>
+            <div aria-hidden="true" class="blob blob-delayed bg-blue-300 dark:bg-blue-600 w-80 h-80 rounded-full bottom-0 right-0 translate-x-1/3 translate-y-1/3"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+                <div class="text-center lg:text-left lg:grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <div class="inline-flex items-center px-3 py-1 rounded-full border border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium mb-2">
+                            <span aria-hidden="true" class="flex h-2 w-2 rounded-full bg-blue-600 dark:bg-blue-400 mr-2"></span>
+                            Open to part-time opportunities
+                        </div>
+                        <h1 class="text-5xl lg:text-7xl font-bold text-slate-900 dark:text-white tracking-tight leading-tight">
+                            Building mobile &amp; <br>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">desktop apps</span> that matter.
+                        </h1>
+                        <p class="text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                            I'm Ahmad Firdaus (Element), an IT student and developer building cross-platform React Native apps and native Windows desktop tools — including maintaining USM's live iSolat app on Google Play.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+                            <a href="#projects" class="px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg font-medium hover:bg-slate-800 dark:hover:bg-slate-100 transition-colors shadow-lg hover:shadow-xl inline-flex items-center justify-center gap-2">
+                                View Work
+                                <svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                    <path d="M5 12h14m-7-7 7 7-7 7"/>
+                                </svg>
+                            </a>
+                            <a href="asset/Resume.pdf" download="Ahmad_Firdaus_Resume.pdf" class="px-8 py-4 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 rounded-lg font-medium hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors inline-flex items-center justify-center gap-2 hover:border-slate-300">
+                                <svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4m4-5 5 5 5-5m-5 5V3"/>
+                                </svg>
+                                Download CV
+                            </a>
+                        </div>
+
+                        <div class="pt-6 flex items-center justify-center lg:justify-start gap-4">
+                            <a href="https://github.com/TheElement45" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" class="w-10 h-10 inline-flex items-center justify-center rounded-lg text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                                <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.linkedin.com/in/element45" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" class="w-10 h-10 inline-flex items-center justify-center rounded-lg text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                                <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                                </svg>
                             </a>
                         </div>
                     </div>
 
-                    <!-- Languages -->
+                    <!-- Hero Code Card (decorative) -->
+                    <div aria-hidden="true" class="hidden lg:block relative group">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-blue-600 to-purple-600 rounded-2xl rotate-3 opacity-20 group-hover:rotate-6 transition-transform duration-500"></div>
+                        <div class="relative bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 p-2 rounded-2xl shadow-2xl overflow-hidden">
+                            <div class="bg-slate-900 rounded-xl p-6 h-96 w-full flex flex-col font-mono text-sm overflow-hidden">
+                                <div class="flex gap-2 mb-4">
+                                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                                </div>
+                                <div class="space-y-2 text-slate-300">
+                                    <p><span class="text-purple-400">class</span> <span class="text-yellow-300">Developer</span> {</p>
+                                    <p class="pl-4"><span class="text-purple-400">constructor</span>() {</p>
+                                    <p class="pl-8"><span class="text-blue-400">this</span>.name = <span class="text-green-300">'Ahmad Firdaus'</span>;</p>
+                                    <p class="pl-8"><span class="text-blue-400">this</span>.focus = <span class="text-green-300">'Mobile &amp; Desktop Dev'</span>;</p>
+                                    <p class="pl-8"><span class="text-blue-400">this</span>.stack = [<span class="text-green-300">'TypeScript'</span>, <span class="text-green-300">'React Native'</span>, <span class="text-green-300">'C#'</span>];</p>
+                                    <p class="pl-4">}</p>
+                                    <p class="pl-4"><br></p>
+                                    <p class="pl-4"><span class="text-purple-400">async</span> <span class="text-blue-300">build</span>() {</p>
+                                    <p class="pl-8"><span class="text-purple-400">while</span> (<span class="text-blue-400">this</span>.shipping) {</p>
+                                    <p class="pl-12"><span class="text-purple-400">await</span> <span class="text-blue-300">code</span>();</p>
+                                    <p class="pl-12"><span class="text-purple-400">await</span> <span class="text-blue-300">deploy</span>();</p>
+                                    <p class="pl-8">}</p>
+                                    <p class="pl-4">}</p>
+                                    <p>}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 bg-white dark:bg-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="lg:grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="relative mb-12 lg:mb-0 reveal-left">
+                        <div class="aspect-square rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-700 relative">
+                            <picture>
+                                <source srcset="asset/profile.webp" type="image/webp">
+                                <img src="asset/profile.jpg" alt="Ahmad Firdaus" width="800" height="800" loading="lazy" decoding="async" class="w-full h-full object-cover">
+                            </picture>
+                        </div>
+                        <!-- Floating CGPA Card -->
+                        <div class="absolute -bottom-6 -right-4 sm:-right-6 bg-white dark:bg-slate-900 p-5 sm:p-6 rounded-xl shadow-xl border border-slate-100 dark:border-slate-700 max-w-xs">
+                            <div class="flex items-center gap-4">
+                                <div class="w-14 h-14 rounded-full bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center text-blue-600 dark:text-blue-400 text-lg font-bold flex-shrink-0">
+                                    3.65
+                                </div>
+                                <div>
+                                    <p class="text-sm text-slate-500 dark:text-slate-400 font-medium">Current CGPA</p>
+                                    <p class="text-lg font-bold text-slate-900 dark:text-white">B.IT (Hons.), UiTM Arau</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6 reveal-right">
+                        <p class="text-sm font-bold tracking-wide text-blue-600 dark:text-blue-400 uppercase">About Me</p>
+                        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">Practical Software Across Mobile &amp; Windows.</h2>
+                        <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                            I enjoy turning everyday friction into clean, responsive software — whether that means refactoring a legacy mobile app to run reliably offline or building a native Windows utility to inspect network traffic in real time.
+                        </p>
+                        <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Following my Diploma in Computer Science and mobile development internship at USM, I fast-tracked into Semester 4 of my B.IT (Hons.) via credit exemption. Alongside my coursework, I continue maintaining USM's iSolat on Google Play and am open to part-time development roles.
+                        </p>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+                            <div class="border-l-4 border-blue-300 dark:border-blue-700 pl-4">
+                                <h3 class="font-bold text-slate-900 dark:text-white">Shipped on Google Play</h3>
+                                <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">Maintaining USM's iSolat alongside my own Attend-In app.</p>
+                            </div>
+                            <div class="border-l-4 border-purple-300 dark:border-purple-700 pl-4">
+                                <h3 class="font-bold text-slate-900 dark:text-white">Mobile &amp; Windows Dev</h3>
+                                <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">Cross-platform React Native / Expo apps and C# / WinUI 3 desktop utilities.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-20 bg-slate-50 dark:bg-slate-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 reveal">
+                    <p class="text-sm font-bold tracking-wide text-blue-600 dark:text-blue-400 uppercase">Career</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mt-2">Work Experience</h2>
+                </div>
+
+                <div class="max-w-4xl mx-auto reveal">
+                    <div class="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow border border-slate-100 dark:border-slate-700">
+                        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-6 border-b border-slate-100 dark:border-slate-700">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center text-blue-600 dark:text-blue-400 flex-shrink-0">
+                                    <svg aria-hidden="true" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                        <rect x="7" y="2" width="10" height="20" rx="2"/>
+                                        <path d="M12 18h.01"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">Universiti Sains Malaysia (USM)</h3>
+                                    <p class="text-slate-500 dark:text-slate-400 text-sm">iSolat Mobile Application</p>
+                                </div>
+                            </div>
+                            <a href="https://play.google.com/store/apps/details?id=com.kamal.isolat.v2&hl=en" target="_blank" rel="noopener noreferrer" class="inline-flex items-center self-start sm:self-center text-sm font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors">
+                                View iSolat on Google Play
+                                <svg aria-hidden="true" class="w-4 h-4 ml-1.5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M3.61 1.814L13.793 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .61-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.493-2.491zM5.864 2.658L16.802 8.99l-2.303 2.303-8.635-8.635z"/>
+                                </svg>
+                            </a>
+                        </div>
+
+                        <!-- Two-stage role progression -->
+                        <div class="relative border-l-2 border-blue-200 dark:border-blue-800 pl-6 ml-3 mt-6 space-y-8">
+                            <!-- Stage 1: Maintainer -->
+                            <div class="relative">
+                                <span aria-hidden="true" class="absolute -left-[33px] top-1.5 w-3.5 h-3.5 rounded-full bg-emerald-500 border-4 border-white dark:border-slate-800"></span>
+                                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                                    <h4 class="text-lg font-bold text-slate-900 dark:text-white">Mobile Application Developer (Ongoing Maintainer)</h4>
+                                    <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
+                                        Feb 2026 – Present
+                                    </span>
+                                </div>
+                                <ul class="space-y-2 text-slate-600 dark:text-slate-300 text-sm md:text-base">
+                                    <li class="flex items-start gap-2.5">
+                                        <svg aria-hidden="true" class="w-4 h-4 text-emerald-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+                                        <span>Provide ongoing on-call maintenance, bug fixes, build management, and Google Play Store releases for USM's live iSolat app.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Stage 2: Intern -->
+                            <div class="relative">
+                                <span aria-hidden="true" class="absolute -left-[33px] top-1.5 w-3.5 h-3.5 rounded-full bg-blue-600 border-4 border-white dark:border-slate-800"></span>
+                                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                                    <h4 class="text-lg font-bold text-slate-900 dark:text-white">Mobile Application Developer Intern</h4>
+                                    <span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
+                                        Sep 2025 – Feb 2026
+                                    </span>
+                                </div>
+                                <ul class="space-y-2.5 text-slate-600 dark:text-slate-300 text-sm md:text-base">
+                                    <li class="flex items-start gap-2.5">
+                                        <svg aria-hidden="true" class="w-4 h-4 text-blue-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+                                        <span>Contributed to modernizing USM's legacy iSolat prayer times app into a cross-platform React Native, Expo, and TypeScript application.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5">
+                                        <svg aria-hidden="true" class="w-4 h-4 text-blue-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+                                        <span>Built responsive screens with NativeWind (Tailwind CSS) and integrated offline prayer data storage using SQLite and MMKV.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5">
+                                        <svg aria-hidden="true" class="w-4 h-4 text-blue-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+                                        <span>Supported home screen widgets, prayer notifications, automated testing workflows, and Play Store release preparation.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-2 pt-6 mt-6 border-t border-slate-100 dark:border-slate-700">
+                            <span class="px-2.5 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-medium rounded-md">React Native</span>
+                            <span class="px-2.5 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-medium rounded-md">Expo</span>
+                            <span class="px-2.5 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-medium rounded-md">TypeScript</span>
+                            <span class="px-2.5 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-medium rounded-md">NativeWind</span>
+                            <span class="px-2.5 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-medium rounded-md">SQLite</span>
+                            <span class="px-2.5 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-medium rounded-md">MMKV</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 bg-white dark:bg-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 reveal">
+                    <p class="text-sm font-bold tracking-wide text-blue-600 dark:text-blue-400 uppercase">My Toolkit</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mt-2">Technical Proficiency</h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-children">
+                    <!-- Skill Card 1: Programming Languages -->
+                    <div class="bg-slate-50 dark:bg-slate-900 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-slate-100 dark:border-slate-700 flex flex-col">
+                        <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/50 rounded-lg flex items-center justify-center text-purple-600 dark:text-purple-400 mb-6">
+                            <svg aria-hidden="true" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Programming Languages</h3>
+                        <p class="text-slate-500 dark:text-slate-400 mb-6 text-sm">Core languages across mobile, desktop, web, and automation.</p>
+                        <div class="space-y-4">
+                            <div>
+                                <p class="text-xs font-semibold uppercase tracking-wider text-purple-700 dark:text-purple-300 mb-2">Core</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1.5 bg-purple-50 dark:bg-purple-900/30 border border-purple-200 dark:border-purple-800 text-purple-800 dark:text-purple-200 text-sm font-medium rounded-lg">TypeScript</span>
+                                    <span class="px-3 py-1.5 bg-purple-50 dark:bg-purple-900/30 border border-purple-200 dark:border-purple-800 text-purple-800 dark:text-purple-200 text-sm font-medium rounded-lg">C#</span>
+                                    <span class="px-3 py-1.5 bg-purple-50 dark:bg-purple-900/30 border border-purple-200 dark:border-purple-800 text-purple-800 dark:text-purple-200 text-sm font-medium rounded-lg">Python</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">Working Knowledge</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-lg">Java</span>
+                                    <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-lg">C++</span>
+                                    <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-lg">PHP</span>
+                                    <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-lg">Lua</span>
+                                    <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-lg">PowerShell</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skill Card 2: Frameworks & Tools -->
+                    <div class="bg-slate-50 dark:bg-slate-900 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-slate-100 dark:border-slate-700 flex flex-col">
+                        <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/50 rounded-lg flex items-center justify-center text-blue-600 dark:text-blue-400 mb-6">
+                            <svg aria-hidden="true" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Frameworks &amp; Tools</h3>
+                        <p class="text-slate-500 dark:text-slate-400 mb-6 text-sm">Mobile, Windows desktop, styling, and CI/CD tooling.</p>
+                        <div class="space-y-4">
+                            <div>
+                                <p class="text-xs font-semibold uppercase tracking-wider text-blue-700 dark:text-blue-300 mb-2">Core</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1.5 bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 text-blue-800 dark:text-blue-200 text-sm font-medium rounded-lg">React Native</span>
+                                    <span class="px-3 py-1.5 bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 text-blue-800 dark:text-blue-200 text-sm font-medium rounded-lg">Expo</span>
+                                    <span class="px-3 py-1.5 bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 text-blue-800 dark:text-blue-200 text-sm font-medium rounded-lg">NativeWind</span>
+                                    <span class="px-3 py-1.5 bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 text-blue-800 dark:text-blue-200 text-sm font-medium rounded-lg">.NET 10 / WinUI 3</span>
+                                    <span class="px-3 py-1.5 bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 text-blue-800 dark:text-blue-200 text-sm font-medium rounded-lg">Git &amp; GitHub</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">Working Knowledge</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-lg">Node.js</span>
+                                    <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-lg">Rainmeter</span>
+                                    <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-lg">GitHub Actions</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skill Card 3: Databases & Storage -->
+                    <div class="bg-slate-50 dark:bg-slate-900 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-slate-100 dark:border-slate-700 flex flex-col">
+                        <div class="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/50 rounded-lg flex items-center justify-center text-emerald-600 dark:text-emerald-400 mb-6">
+                            <svg aria-hidden="true" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                                <path d="M3 5v14a9 3 0 0 0 18 0V5"/>
+                                <path d="M3 12a9 3 0 0 0 18 0"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Databases &amp; Storage</h3>
+                        <p class="text-slate-500 dark:text-slate-400 mb-6 text-sm">Relational databases, cloud backends, and offline mobile storage.</p>
+                        <div class="space-y-4">
+                            <div>
+                                <p class="text-xs font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-300 mb-2">Core</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1.5 bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-200 text-sm font-medium rounded-lg">SQLite</span>
+                                    <span class="px-3 py-1.5 bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-200 text-sm font-medium rounded-lg">MMKV</span>
+                                    <span class="px-3 py-1.5 bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-200 text-sm font-medium rounded-lg">Firebase</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">Working Knowledge</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-lg">MySQL</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 bg-slate-50 dark:bg-slate-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 reveal gap-4">
                     <div>
-                        <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-3">
-                            <span class="w-10 h-10 rounded-lg bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center">
-                                <i class="fas fa-language"></i>
+                        <p class="text-sm font-bold tracking-wide text-blue-600 dark:text-blue-400 uppercase">Portfolio</p>
+                        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mt-2">Featured Projects</h2>
+                    </div>
+                    <a href="https://github.com/TheElement45" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center text-slate-600 dark:text-slate-400 font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                        View GitHub Profile
+                        <svg aria-hidden="true" class="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Category Filters -->
+                <div class="flex flex-wrap gap-2 mb-10 reveal" role="group" aria-label="Filter projects by category">
+                    <button type="button" data-filter="all" aria-pressed="true" class="project-filter-btn px-4 py-2 rounded-full text-sm font-medium transition-colors bg-blue-600 text-white shadow-sm cursor-pointer">
+                        All (5)
+                    </button>
+                    <button type="button" data-filter="mobile" aria-pressed="false" class="project-filter-btn px-4 py-2 rounded-full text-sm font-medium transition-colors bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer">
+                        Mobile (3)
+                    </button>
+                    <button type="button" data-filter="desktop" aria-pressed="false" class="project-filter-btn px-4 py-2 rounded-full text-sm font-medium transition-colors bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer">
+                        Desktop (2)
+                    </button>
+                </div>
+                <p id="projectFilterStatus" class="sr-only" aria-live="polite">Showing 5 all projects.</p>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-children" id="projectsGrid">
+                    <!-- Project 1: iSolat (USM) -->
+                    <article id="project-isolat" data-category="mobile" class="project-card lg:col-span-2 group rounded-xl overflow-hidden bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col lg:flex-row">
+                        <div class="h-52 lg:h-auto lg:w-2/5 bg-gradient-to-br from-emerald-500 to-teal-700 relative overflow-hidden flex-shrink-0">
+                            <!-- Screenshot slot: add asset/projects/isolat.webp (1200x750) and uncomment
+                            <picture>
+                                <source srcset="asset/projects/isolat.webp" type="image/webp">
+                                <img src="asset/projects/isolat.png" alt="iSolat USM mobile app screens" width="1200" height="750" loading="lazy" decoding="async" class="w-full h-full object-cover">
+                            </picture>
+                            -->
+                            <span class="absolute top-4 left-4 px-2.5 py-1 rounded-full text-xs font-semibold bg-white/20 text-white backdrop-blur-sm border border-white/25">
+                                Featured · Production
                             </span>
-                            Languages
-                        </h4>
-
-                        <div class="grid sm:grid-cols-2 gap-4">
-                            <div class="bg-slate-50 dark:bg-slate-900 p-5 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm flex items-center justify-between">
-                                <span class="font-bold text-slate-900 dark:text-white">Malay</span>
-                                <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400">Native</span>
+                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                                <svg aria-hidden="true" class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                    <path d="M12 3c-2 2-4 3.5-4 6h8c0-2.5-2-4-4-6Z"/>
+                                    <path d="M6 9v12h12V9"/>
+                                    <path d="M10 21v-5a2 2 0 1 1 4 0v5"/>
+                                    <path d="M3 21h18"/>
+                                </svg>
                             </div>
-                            <div class="bg-slate-50 dark:bg-slate-900 p-5 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm flex items-center justify-between">
-                                <span class="font-bold text-slate-900 dark:text-white">English</span>
-                                <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400">Fluent</span>
+                        </div>
+                        <div class="p-6 lg:p-8 flex-1 flex flex-col justify-between">
+                            <div>
+                                <div class="flex flex-wrap gap-2 mb-3">
+                                    <span class="px-2 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs font-medium rounded">React Native</span>
+                                    <span class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-medium rounded">Expo</span>
+                                    <span class="px-2 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 text-xs font-medium rounded">TypeScript</span>
+                                    <span class="px-2 py-1 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 text-xs font-medium rounded">SQLite &amp; MMKV</span>
+                                </div>
+                                <h3 class="text-xl lg:text-2xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">iSolat (USM)</h3>
+                                <p class="text-slate-600 dark:text-slate-300 text-sm lg:text-base mb-5 leading-relaxed">
+                                    Modernized Universiti Sains Malaysia's prayer times application with a responsive NativeWind UI, offline-first SQLite and MMKV storage, Android home screen widgets, and scheduled prayer notifications. Continues in active maintenance with Google Play Store release management.
+                                </p>
+                            </div>
+                            <div>
+                                <a href="https://play.google.com/store/apps/details?id=com.kamal.isolat.v2&hl=en" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-semibold text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                                    View iSolat on Google Play
+                                    <svg aria-hidden="true" class="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M3.61 1.814L13.793 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .61-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.493-2.491zM5.864 2.658L16.802 8.99l-2.303 2.303-8.635-8.635z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 2: CrystalCable -->
+                    <article data-category="desktop" class="project-card group rounded-xl overflow-hidden bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col">
+                        <div class="h-48 bg-gradient-to-br from-sky-500 to-cyan-700 relative overflow-hidden">
+                            <!-- Screenshot slot: add asset/projects/crystalcable.webp (1200x750) and uncomment
+                            <picture>
+                                <source srcset="asset/projects/crystalcable.webp" type="image/webp">
+                                <img src="asset/projects/crystalcable.png" alt="CrystalCable Windows network monitor interface" width="1200" height="750" loading="lazy" decoding="async" class="w-full h-full object-cover">
+                            </picture>
+                            -->
+                            <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-900/50 text-white backdrop-blur-sm">
+                                Private repo
+                            </span>
+                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                                <svg aria-hidden="true" class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <span class="px-2 py-1 bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-xs font-medium rounded">C#</span>
+                                <span class="px-2 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs font-medium rounded">.NET 10</span>
+                                <span class="px-2 py-1 bg-cyan-50 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300 text-xs font-medium rounded">WinUI 3</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">CrystalCable</h3>
+                            <p class="text-slate-600 dark:text-slate-300 text-sm mb-4 flex-1">GlassWire-inspired Windows network monitoring app visualizing real-time traffic and per-app bandwidth usage, with live connection tracking, LAN device discovery, firewall rule toggles, and traffic history logging.</p>
+                            <a href="#contact" class="inline-flex items-center text-sm font-medium text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                                Source available on request
+                                <svg aria-hidden="true" class="w-4 h-4 ml-1.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                    <path d="M5 12h14m-7-7 7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Project 3: SlateHUD -->
+                    <article data-category="desktop" class="project-card group rounded-xl overflow-hidden bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col">
+                        <div class="h-48 bg-gradient-to-br from-slate-700 to-slate-900 relative overflow-hidden">
+                            <!-- Screenshot slot: add asset/projects/slatehud.webp (1200x750) and uncomment
+                            <picture>
+                                <source srcset="asset/projects/slatehud.webp" type="image/webp">
+                                <img src="asset/projects/slatehud.png" alt="SlateHUD desktop widgets on Windows" width="1200" height="750" loading="lazy" decoding="async" class="w-full h-full object-cover">
+                            </picture>
+                            -->
+                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white/15 backdrop-blur-sm rounded-full flex items-center justify-center">
+                                <svg aria-hidden="true" class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                    <rect x="2" y="3" width="20" height="14" rx="2"/>
+                                    <path d="M8 21h8m-4-4v4"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <span class="px-2 py-1 bg-sky-50 dark:bg-sky-900/30 text-sky-700 dark:text-sky-300 text-xs font-medium rounded">Rainmeter</span>
+                                <span class="px-2 py-1 bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-xs font-medium rounded">C#</span>
+                                <span class="px-2 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 text-xs font-medium rounded">Lua</span>
+                                <span class="px-2 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs font-medium rounded">PowerShell</span>
+                                <span class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-medium rounded">GitHub Actions</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">SlateHUD</h3>
+                            <p class="text-slate-600 dark:text-slate-300 text-sm mb-4 flex-1">Customizable multi-theme Windows desktop HUD suite displaying system stats, network activity, media controls, quick notes, and an app/game launcher, with automated regression testing and GitHub Actions release packaging.</p>
+                            <a href="https://github.com/TheElement45/SlateHUD" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-medium text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                                View SlateHUD on GitHub
+                                <svg aria-hidden="true" class="w-4 h-4 ml-1.5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Project 4: Attend-In -->
+                    <article data-category="mobile" class="project-card group rounded-xl overflow-hidden bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col">
+                        <div class="h-48 bg-gradient-to-br from-blue-500 to-indigo-600 relative overflow-hidden">
+                            <!-- Screenshot slot: add asset/projects/attendin.webp (1200x750) and uncomment
+                            <picture>
+                                <source srcset="asset/projects/attendin.webp" type="image/webp">
+                                <img src="asset/projects/attendin.png" alt="Attend-In mobile attendance tracking app" width="1200" height="750" loading="lazy" decoding="async" class="w-full h-full object-cover">
+                            </picture>
+                            -->
+                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                                <svg aria-hidden="true" class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                    <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/>
+                                    <rect x="9" y="3" width="6" height="4" rx="1"/>
+                                    <path d="m9 14 2 2 4-4"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <span class="px-2 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs font-medium rounded">React Native</span>
+                                <span class="px-2 py-1 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 text-xs font-medium rounded">Published</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Attend-In</h3>
+                            <p class="text-slate-600 dark:text-slate-300 text-sm mb-4 flex-1">Personal Android attendance-tracking app published on Google Play. Designed to simplify session logging, daily check-ins, and structured attendance record management from a single mobile workflow.</p>
+                            <a href="https://play.google.com/store/apps/details?id=com.element.attendin" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-medium text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                                View Attend-In on Google Play
+                                <svg aria-hidden="true" class="w-4 h-4 ml-1.5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M3.61 1.814L13.793 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .61-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.493-2.491zM5.864 2.658L16.802 8.99l-2.303 2.303-8.635-8.635z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Project 5: Convergent -->
+                    <article data-category="mobile" class="project-card group rounded-xl overflow-hidden bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col">
+                        <div class="h-48 bg-gradient-to-br from-green-500 to-teal-600 relative overflow-hidden">
+                            <!-- Screenshot slot: add asset/projects/convergent.webp (1200x750) and uncomment
+                            <picture>
+                                <source srcset="asset/projects/convergent.webp" type="image/webp">
+                                <img src="asset/projects/convergent.png" alt="Convergent habit tracker mobile interface" width="1200" height="750" loading="lazy" decoding="async" class="w-full h-full object-cover">
+                            </picture>
+                            -->
+                            <div aria-hidden="true" class="absolute bottom-0 left-1/2 -translate-x-1/2 w-4/5 h-4/5 bg-white dark:bg-slate-900 rounded-t-lg shadow-2xl opacity-90 group-hover:translate-y-2 transition-transform">
+                                <div class="p-4 space-y-2">
+                                    <div class="w-1/3 h-2 bg-slate-200 dark:bg-slate-600 rounded"></div>
+                                    <div class="w-full h-16 bg-slate-100 dark:bg-slate-700 rounded flex items-center justify-center">
+                                        <svg aria-hidden="true" class="w-7 h-7 text-green-500" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <circle cx="12" cy="12" r="10"/>
+                                            <path d="m9 12 2 2 4-4"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <span class="px-2 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs font-medium rounded">React Native</span>
+                                <span class="px-2 py-1 bg-amber-50 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 text-xs font-medium rounded">Firebase</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Convergent</h3>
+                            <p class="text-slate-600 dark:text-slate-300 text-sm mb-4 flex-1">Cross-platform habit-tracking app backed by Firebase for setting daily routines, syncing streaks across sessions, and visualizing long-term consistency.</p>
+                            <a href="https://github.com/TheElement45/Convergent" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-medium text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                                View Convergent on GitHub
+                                <svg aria-hidden="true" class="w-4 h-4 ml-1.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6m4-3h6v6m-11 5L21 3"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="mt-8 text-center md:hidden">
+                    <a href="https://github.com/TheElement45" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-slate-600 dark:text-slate-400 font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                        View GitHub Profile
+                        <svg aria-hidden="true" class="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education, Certifications & Languages Section -->
+        <section id="education" class="py-20 bg-white dark:bg-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 reveal">
+                    <p class="text-sm font-bold tracking-wide text-blue-600 dark:text-blue-400 uppercase">Background</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mt-2">Education &amp; Credentials</h2>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <!-- Left Column: Education Timeline -->
+                    <div class="reveal-left">
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-3">
+                            <span class="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+                                <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                                    <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                                </svg>
+                            </span>
+                            Education Timeline
+                        </h3>
+
+                        <div class="relative border-l-2 border-blue-200 dark:border-blue-800 pl-8 space-y-8 ml-4">
+                            <!-- Degree -->
+                            <div class="relative">
+                                <span aria-hidden="true" class="absolute -left-[41px] top-1.5 w-4 h-4 rounded-full bg-blue-600 border-4 border-white dark:border-slate-800"></span>
+                                <div class="bg-slate-50 dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm">
+                                    <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                                        <span class="text-xs font-semibold text-blue-700 dark:text-blue-400 uppercase tracking-wide">Mar 2026 – Present (Expected 2028)</span>
+                                        <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
+                                            CGPA: 3.65
+                                        </span>
+                                    </div>
+                                    <h4 class="text-lg font-bold text-slate-900 dark:text-white">Bachelor of Information Technology (Hons.)</h4>
+                                    <p class="text-slate-600 dark:text-slate-400 text-sm mt-1">Universiti Teknologi MARA (UiTM), Arau Campus</p>
+                                    <p class="text-slate-500 dark:text-slate-400 text-xs mt-2">Semester 4 · Direct entry via Diploma credit exemption.</p>
+                                </div>
+                            </div>
+
+                            <!-- Diploma -->
+                            <div class="relative">
+                                <span aria-hidden="true" class="absolute -left-[41px] top-1.5 w-4 h-4 rounded-full bg-purple-600 border-4 border-white dark:border-slate-800"></span>
+                                <div class="bg-slate-50 dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm">
+                                    <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                                        <span class="text-xs font-semibold text-purple-700 dark:text-purple-400 uppercase tracking-wide">September 2023 – February 2026</span>
+                                        <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800">
+                                            Final CGPA: 3.45
+                                        </span>
+                                    </div>
+                                    <h4 class="text-lg font-bold text-slate-900 dark:text-white">Diploma in Computer Science</h4>
+                                    <p class="text-slate-600 dark:text-slate-400 text-sm mt-1">Universiti Teknologi MARA (UiTM), Tapah Campus</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Certifications & Languages -->
+                    <div class="space-y-8 reveal-right">
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
+                            <span class="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+                                <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="8" r="6"/>
+                                    <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+                                </svg>
+                            </span>
+                            Credentials &amp; Languages
+                        </h3>
+
+                        <!-- Compact Certification Card -->
+                        <div class="bg-slate-50 dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm">
+                            <p class="text-xs font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-3">Certification</p>
+                            <div class="flex flex-wrap items-start justify-between gap-2">
+                                <div>
+                                    <h4 class="text-lg font-bold text-slate-900 dark:text-white">Introduction to IoT</h4>
+                                    <p class="text-slate-600 dark:text-slate-400 text-sm mt-1">Cisco Networking Academy</p>
+                                </div>
+                                <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
+                                    March 2025
+                                </span>
+                            </div>
+                            <a href="https://www.credly.com/badges/c7447cc2-9eb0-4f50-92d8-a3cd6c4dbb19/public_url" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors mt-4">
+                                Verify Introduction to IoT on Credly
+                                <svg aria-hidden="true" class="w-3.5 h-3.5 ml-1.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6m4-3h6v6m-11 5L21 3"/>
+                                </svg>
+                            </a>
+                        </div>
+
+                        <!-- Languages -->
+                        <div class="bg-slate-50 dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm">
+                            <p class="text-xs font-semibold uppercase tracking-wider text-indigo-700 dark:text-indigo-400 mb-3">Languages</p>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="bg-white dark:bg-slate-800 p-4 rounded-lg border border-slate-200 dark:border-slate-700 flex items-center justify-between">
+                                    <span class="font-bold text-slate-900 dark:text-white">Malay</span>
+                                    <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300">Native</span>
+                                </div>
+                                <div class="bg-white dark:bg-slate-800 p-4 rounded-lg border border-slate-200 dark:border-slate-700 flex items-center justify-between">
+                                    <span class="font-bold text-slate-900 dark:text-white">English</span>
+                                    <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300">Fluent</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-slate-900 text-white relative overflow-hidden">
-        <!-- Decoration -->
-        <div class="absolute top-0 right-0 w-64 h-64 bg-blue-600 rounded-full blur-[100px] opacity-20"></div>
-        <div class="absolute bottom-0 left-0 w-64 h-64 bg-purple-600 rounded-full blur-[100px] opacity-20"></div>
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-slate-900 text-white relative overflow-hidden">
+            <!-- Decoration -->
+            <div aria-hidden="true" class="absolute top-0 right-0 w-64 h-64 bg-blue-600 rounded-full blur-[100px] opacity-20"></div>
+            <div aria-hidden="true" class="absolute bottom-0 left-0 w-64 h-64 bg-purple-600 rounded-full blur-[100px] opacity-20"></div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="lg:grid lg:grid-cols-2 gap-16">
-                <div class="mb-12 lg:mb-0 reveal-left">
-                    <h2 class="text-sm font-bold tracking-wide text-blue-400 uppercase">Get in Touch</h2>
-                    <h3 class="text-3xl md:text-4xl font-bold mt-2 mb-6">Let's work together</h3>
-                    <p class="text-slate-300 leading-relaxed mb-8 max-w-lg">
-                        Have a project in mind or just want to say hi? I'm currently open to new opportunities. Send me a message and I'll get back to you as soon as possible.
-                    </p>
-                    
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-4">
-                            <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-blue-400">
-                                <i class="fas fa-envelope"></i>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="lg:grid lg:grid-cols-2 gap-16">
+                    <div class="mb-12 lg:mb-0 reveal-left">
+                        <p class="text-sm font-bold tracking-wide text-blue-400 uppercase">Get in Touch</p>
+                        <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-6">Let's work together</h2>
+                        <p class="text-slate-300 leading-relaxed mb-8 max-w-lg">
+                            Looking for a part-time mobile or Windows developer, or want to see source code for a private project? Send me a message and I'll reply as soon as possible.
+                        </p>
+
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-blue-400 flex-shrink-0">
+                                    <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                        <rect x="2" y="4" width="20" height="16" rx="2"/>
+                                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                                    </svg>
+                                </div>
+                                <a href="mailto:element45.official@gmail.com" class="text-slate-200 hover:text-blue-400 transition-colors">element45.official@gmail.com</a>
                             </div>
-                            <a href="mailto:element45.official@gmail.com" class="text-slate-200 hover:text-blue-400 transition-colors">element45.official@gmail.com</a>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-blue-400">
-                                <i class="fas fa-map-marker-alt"></i>
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-blue-400 flex-shrink-0">
+                                    <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                                        <circle cx="12" cy="10" r="3"/>
+                                    </svg>
+                                </div>
+                                <span class="text-slate-200">Arau, Perlis, Malaysia</span>
                             </div>
-                            <span class="text-slate-200">Arau, Perlis, Malaysia</span>
                         </div>
                     </div>
-                </div>
 
-                <div class="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 reveal-right">
-                    <!-- Working Contact Form with Formspree -->
-                    <form action="https://formspree.io/f/xdkqkwkb" method="POST" class="space-y-6" id="contactForm">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <div>
-                                <label for="name" class="block text-sm font-medium text-slate-300 mb-2">Name</label>
-                                <input type="text" id="name" name="name" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="John Doe">
+                    <div class="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 reveal-right">
+                        <form action="https://formspree.io/f/xdkqkwkb" method="POST" class="space-y-6" id="contactForm" aria-label="Contact form">
+                            <!-- Formspree spam honeypot -->
+                            <input type="text" name="_gotcha" class="hidden" tabindex="-1" aria-hidden="true" autocomplete="off">
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-slate-300 mb-2">Name <span aria-hidden="true" class="text-blue-400">*</span></label>
+                                    <input type="text" id="name" name="name" autocomplete="name" enterkeyhint="next" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-400 transition-colors" placeholder="John Doe">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-slate-300 mb-2">Email <span aria-hidden="true" class="text-blue-400">*</span></label>
+                                    <input type="email" id="email" name="email" autocomplete="email" autocorrect="off" autocapitalize="none" spellcheck="false" enterkeyhint="next" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-400 transition-colors" placeholder="john@example.com">
+                                </div>
                             </div>
                             <div>
-                                <label for="email" class="block text-sm font-medium text-slate-300 mb-2">Email</label>
-                                <input type="email" id="email" name="email" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="john@example.com">
+                                <label for="subject" class="block text-sm font-medium text-slate-300 mb-2">Subject <span aria-hidden="true" class="text-blue-400">*</span></label>
+                                <input type="text" id="subject" name="subject" enterkeyhint="next" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-400 transition-colors" placeholder="Part-Time Role / Project Inquiry">
                             </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-slate-300 mb-2">Message <span aria-hidden="true" class="text-blue-400">*</span></label>
+                                <textarea id="message" name="message" rows="4" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-400 transition-colors" placeholder="Tell me about your project or role..."></textarea>
+                            </div>
+
+                            <p id="formError" role="alert" class="hidden text-sm text-red-300 bg-red-950/60 border border-red-700/60 rounded-lg px-4 py-3"></p>
+
+                            <button type="submit" id="contactSubmitBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-lg transition-colors shadow-lg shadow-blue-600/20 flex items-center justify-center gap-2 cursor-pointer">
+                                <span id="contactSubmitLabel">Send Message</span>
+                                <svg id="contactSubmitIcon" aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                    <path d="m22 2-7 20-4-9-9-4Z"/>
+                                    <path d="M22 2 11 13"/>
+                                </svg>
+                                <svg id="contactSubmitSpinner" aria-hidden="true" class="w-4 h-4 hidden animate-spin" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 0 1 8-8V0C5.373 0 0 5.373 0 12h4z"/>
+                                </svg>
+                            </button>
+                        </form>
+
+                        <!-- Success message -->
+                        <div id="formSuccess" role="status" aria-live="polite" class="hidden text-center py-8">
+                            <div class="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg aria-hidden="true" class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                    <path d="M20 6 9 17l-5-5"/>
+                                </svg>
+                            </div>
+                            <h3 id="formSuccessHeading" tabindex="-1" class="text-xl font-bold text-white mb-2">Message Sent!</h3>
+                            <p class="text-slate-300 mb-6">Thank you for reaching out. I'll get back to you soon.</p>
+                            <button type="button" id="resetFormBtn" class="px-5 py-2.5 text-sm font-medium rounded-lg border border-slate-700 text-slate-200 hover:bg-slate-800 transition-colors cursor-pointer">
+                                Send another message
+                            </button>
                         </div>
-                        <div>
-                            <label for="subject" class="block text-sm font-medium text-slate-300 mb-2">Subject</label>
-                            <input type="text" id="subject" name="subject" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Project Inquiry">
-                        </div>
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-slate-300 mb-2">Message</label>
-                            <textarea id="message" name="message" rows="4" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Tell me about your project..."></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-lg transition-colors shadow-lg shadow-blue-600/20 flex items-center justify-center gap-2">
-                            <span>Send Message</span>
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </form>
-                    
-                    <!-- Success message (hidden by default) -->
-                    <div id="formSuccess" class="hidden text-center py-8">
-                        <div class="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-check text-green-400 text-2xl"></i>
-                        </div>
-                        <h4 class="text-xl font-bold text-white mb-2">Message Sent!</h4>
-                        <p class="text-slate-400">Thank you for reaching out. I'll get back to you soon.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="bg-slate-950 text-slate-400 py-8 text-sm border-t border-slate-900">
@@ -883,174 +953,28 @@
                 &copy; 2026 Ahmad Firdaus. All rights reserved.
             </div>
             <div class="flex space-x-6">
-                <a href="https://github.com/TheElement45" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors"><i class="fab fa-github mr-1"></i> GitHub</a>
-                <a href="https://www.linkedin.com/in/element45" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors"><i class="fab fa-linkedin mr-1"></i> LinkedIn</a>
+                <a href="https://github.com/TheElement45" target="_blank" rel="noopener noreferrer" class="inline-flex items-center hover:text-white transition-colors">
+                    <svg aria-hidden="true" class="w-4 h-4 mr-1.5" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/>
+                    </svg>
+                    GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/element45" target="_blank" rel="noopener noreferrer" class="inline-flex items-center hover:text-white transition-colors">
+                    <svg aria-hidden="true" class="w-4 h-4 mr-1.5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                    </svg>
+                    LinkedIn
+                </a>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script>
-        // Page Loader
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('pageLoader').classList.add('loaded');
-            }, 500);
-        });
-        
-        // Dark Mode Toggle
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        const darkModeToggleMobile = document.getElementById('darkModeToggleMobile');
-        const html = document.documentElement;
-        
-        // Check for saved preference or system preference
-        if (localStorage.getItem('darkMode') === 'true' || 
-            (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            html.classList.add('dark');
-        }
-        
-        function toggleDarkMode() {
-            html.classList.toggle('dark');
-            localStorage.setItem('darkMode', html.classList.contains('dark'));
-        }
-        
-        darkModeToggle.addEventListener('click', toggleDarkMode);
-        darkModeToggleMobile.addEventListener('click', toggleDarkMode);
-        
-        // Mobile Menu Toggle
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-        const icon = btn.querySelector('i');
+    <!-- Scroll to Top Button -->
+    <button type="button" class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">
+        <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="m18 15-6-6-6 6"/>
+        </svg>
+    </button>
 
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-            const isExpanded = !menu.classList.contains('hidden');
-            btn.setAttribute('aria-expanded', String(isExpanded));
-            if (isExpanded) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
-
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.add('hidden');
-                btn.setAttribute('aria-expanded', 'false');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            });
-        });
-
-        // Navbar Scroll Effect
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 10) {
-                navbar.classList.add('shadow-md');
-            } else {
-                navbar.classList.remove('shadow-md');
-            }
-        });
-        
-        // Scroll to Top Button
-        const scrollTopBtn = document.getElementById('scrollTopBtn');
-        
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 500) {
-                scrollTopBtn.classList.add('visible');
-            } else {
-                scrollTopBtn.classList.remove('visible');
-            }
-        });
-        
-        scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Section Reveal Animations on Scroll
-        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .stagger-children');
-        
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
-        
-        revealElements.forEach(el => revealObserver.observe(el));
-
-        // Project Category Filtering
-        const filterButtons = document.querySelectorAll('.project-filter-btn');
-        const projectCards = document.querySelectorAll('#projectsGrid .project-card');
-        const activeFilterClasses = ['bg-blue-600', 'text-white', 'shadow-sm'];
-        const inactiveFilterClasses = ['bg-white', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-300', 'border', 'border-slate-200', 'dark:border-slate-700', 'hover:bg-slate-100', 'dark:hover:bg-slate-700'];
-
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const selectedFilter = button.getAttribute('data-filter');
-
-                filterButtons.forEach(btnEl => {
-                    const isSelected = btnEl === button;
-                    btnEl.setAttribute('aria-pressed', String(isSelected));
-                    if (isSelected) {
-                        btnEl.classList.remove(...inactiveFilterClasses);
-                        btnEl.classList.add(...activeFilterClasses);
-                    } else {
-                        btnEl.classList.remove(...activeFilterClasses);
-                        btnEl.classList.add(...inactiveFilterClasses);
-                    }
-                });
-
-                projectCards.forEach(card => {
-                    const category = card.getAttribute('data-category');
-                    if (selectedFilter === 'all' || category === selectedFilter) {
-                        card.classList.remove('hidden');
-                    } else {
-                        card.classList.add('hidden');
-                    }
-                });
-            });
-        });
-
-        // Contact Form Handler
-        const contactForm = document.getElementById('contactForm');
-        const formSuccess = document.getElementById('formSuccess');
-        
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const formData = new FormData(contactForm);
-            
-            try {
-                const response = await fetch(contactForm.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-                
-                if (response.ok) {
-                    contactForm.classList.add('hidden');
-                    formSuccess.classList.remove('hidden');
-                    contactForm.reset();
-                } else {
-                    alert('Oops! There was a problem submitting your form. Please try again.');
-                }
-            } catch (error) {
-                alert('Oops! There was a problem submitting your form. Please try again.');
-            }
-        });
-    </script>
 </body>
 </html>

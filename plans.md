@@ -21,6 +21,6 @@ Add a "What I'm Learning" Section - Show growth mindset
 
 🚀 SEO & Performance
 ~~Add Meta Tags - Open Graph, Twitter Cards for better link previews~~ ✅
-Add Schema Markup - Structured data for search engines
-Replace CDN Tailwind - Build with PostCSS for smaller bundle size
+~~Add Schema Markup - Structured data for search engines~~ ✅
+~~Replace CDN Tailwind - Build with PostCSS for smaller bundle size~~ ✅
 ~~Add Real Profile Photo - Replace the placeholder icon~~ ✅
